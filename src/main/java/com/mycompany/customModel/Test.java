@@ -9,5 +9,7 @@ package com.mycompany.customModel;
  * @author Admin
  */
 public class Test {
-    
+    public static void main(String[] args) {
+        
+    }
 }
