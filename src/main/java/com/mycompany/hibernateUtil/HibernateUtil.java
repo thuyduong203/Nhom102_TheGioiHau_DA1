@@ -30,19 +30,6 @@ public class HibernateUtil {
         properties.put(Environment.PASS, "12123");
         properties.put(Environment.SHOW_SQL, true);
         conf.setProperties(properties);
-//        conf.addAnnotatedClass(ChucVu.class);
-//        conf.addAnnotatedClass(DongSP.class);
-//        conf.addAnnotatedClass(ChiTietSP.class);
-//        conf.addAnnotatedClass(MauSac.class);
-//        conf.addAnnotatedClass(SanPham.class);
-//        conf.addAnnotatedClass(NSX.class);
-//        conf.addAnnotatedClass(CuaHang.class);
-//        conf.addAnnotatedClass(GioHang.class);
-//        conf.addAnnotatedClass(GioHangChiTiet.class);
-//        conf.addAnnotatedClass(HoaDon.class);
-//        conf.addAnnotatedClass(HoaDonChiTiet.class);
-//        conf.addAnnotatedClass(KhachHang.class);
-//        conf.addAnnotatedClass(NhanVien.class);
         ServiceRegistry registry = new StandardServiceRegistryBuilder().applySettings(conf.getProperties()).build();
         FACTORY = conf.buildSessionFactory(registry);
     }

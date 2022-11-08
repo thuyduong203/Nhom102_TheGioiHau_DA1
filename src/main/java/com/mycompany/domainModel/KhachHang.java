@@ -6,10 +6,8 @@ package com.mycompany.domainModel;
 
 /**
  *
- * @author Duongntt
+ * @author Admin
  */
-public class Test1 {
-    public static void main(String[] args) {
-        System.out.println("Sơn");
-    }
+public class KhachHang {
+    
 }
