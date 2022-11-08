@@ -4,10 +4,7 @@
  */
 package com.mycompany.repository;
 
-/**
- *
- * @author Admin
- */
+
 public class Test {
     
 }

@@ -26,6 +26,6 @@ public class ChucVu {
     private Integer trangThai;
 
     public Object[] toDataRow() {
-        return new Object[]{id, ma, ten, trangThai};
+        return new Object[]{ma, ten, trangThai == 1 ? "Chưa xoá" : "Đã xoá"};
     }
 }
