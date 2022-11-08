@@ -4,10 +4,40 @@
  */
 package com.mycompany.domainModel;
 
-/**
- *
- * @author Admin
- */
+import java.sql.Date;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@ToString
 public class NhanVien {
+
+    private String id;
+
+    private String ma;
+
+    private ChucVu chucVu;
+
+    private String ho;
+
+    private String tenDem;
+
+    private String ten;
+
+    private String gioiTinh;
+
+    private String soDienThoai;
+
+    private Date ngaySinh;
+
+    private String matKhau;
+
+    private Integer trangThai;
     
 }

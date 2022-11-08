@@ -4,10 +4,28 @@
  */
 package com.mycompany.domainModel;
 
-/**
- *
- * @author Admin
- */
+import java.math.BigDecimal;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@ToString
 public class HoaDonChiTiet {
+
+    private String id;
+    
+    private MonAn monAn;
+    
+    private HoaDon hoaDon;
+    
+    private int soLuong;
+    
+    private BigDecimal donGia;
     
 }

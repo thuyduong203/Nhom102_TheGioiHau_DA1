@@ -4,10 +4,28 @@
  */
 package com.mycompany.domainModel;
 
-/**
- *
- * @author Admin
- */
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@ToString
 public class ChucVu {
-    
+
+    private String id;
+
+    private String ma;
+
+    private String ten;
+
+    private Integer trangThai;
+
+    public Object[] toDataRow() {
+        return new Object[]{id, ma, ten, trangThai};
+    }
 }
