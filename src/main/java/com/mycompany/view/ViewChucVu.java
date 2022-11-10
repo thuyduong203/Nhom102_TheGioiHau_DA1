@@ -5,11 +5,11 @@
 package com.mycompany.view;
 
 import com.mycompany.domainModel.ChucVu;
-import com.mycompany.service.ICommon;
 import com.mycompany.service.impl.ChucVuService;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import com.mycompany.service.ICommonService;
 
 /**
  *
@@ -19,7 +19,7 @@ public class ViewChucVu extends javax.swing.JFrame {
 
     private DefaultTableModel dtm;
     private List<ChucVu> lstChucVus;
-    private ICommon cvs;
+    private ICommonService cvs;
 
     public ViewChucVu() {
         initComponents();

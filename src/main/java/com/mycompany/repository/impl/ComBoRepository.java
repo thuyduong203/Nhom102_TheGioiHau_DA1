@@ -7,18 +7,18 @@ package com.mycompany.repository.impl;
 import com.mycompany.domainModel.ComBo;
 import com.mycompany.domainModel.NhanVien;
 import com.mycompany.hibernateUtil.HibernateUtil;
-import com.mycompany.repository.ICommon;
 import java.math.BigDecimal;
 import java.util.List;
 import javax.persistence.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import com.mycompany.repository.ICommonRepository;
 
 /**
  *
  * @author Admin
  */
-public class ComBoRepository implements ICommon<ComBo, Boolean, String> {
+public class ComBoRepository implements ICommonRepository<ComBo, Boolean, String> {
 
     private static final Session session = HibernateUtil.getFactory().openSession();
     private String fromTable = "FROM ComBo ";

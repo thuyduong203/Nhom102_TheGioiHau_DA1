@@ -15,7 +15,7 @@ import java.util.List;
 //B = boolean
 //S = String
 //I = integer
-public interface ICommon<O, B, S> {
+public interface ICommonRepository<O, B, S> {
 
     List<O> getAll();
 

@@ -6,13 +6,13 @@ package com.mycompany.view;
 
 import com.mycompany.domainModel.ComBo;
 import com.mycompany.domainModel.NhanVien;
-import com.mycompany.service.ICommon;
 import com.mycompany.service.impl.ComBoService;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import com.mycompany.service.ICommonService;
 
 /**
  *
@@ -22,7 +22,7 @@ public class ViewComBo extends javax.swing.JFrame {
 
     private DefaultTableModel dtm;
     private List<ComBo> lstComBos;
-    private ICommon cbs;
+    private ICommonService cbs;
 
     public ViewComBo() {
         initComponents();

@@ -7,17 +7,17 @@ package com.mycompany.service.impl;
 import com.mycompany.domainModel.ComBo;
 import com.mycompany.domainModel.NhanVien;
 import com.mycompany.repository.impl.ComBoRepository;
-import com.mycompany.service.ICommon;
 import java.math.BigDecimal;
 import java.util.List;
+import com.mycompany.service.ICommonService;
 
 /**
  *
  * @author Admin
  */
-public class ComBoService implements ICommon<ComBo, String> {
+public class ComBoService implements ICommonService<ComBo, String> {
 
-    private final com.mycompany.repository.ICommon cbr = new ComBoRepository();
+    private final com.mycompany.repository.ICommonRepository cbr = new ComBoRepository();
 
     @Override
     public List<ComBo> getAll() {

@@ -6,17 +6,17 @@ package com.mycompany.repository.impl;
 
 import com.mycompany.domainModel.ChucVu;
 import com.mycompany.hibernateUtil.HibernateUtil;
-import com.mycompany.repository.ICommon;
 import java.util.List;
 import javax.persistence.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import com.mycompany.repository.ICommonRepository;
 
 /**
  *
  * @author Admin
  */
-public class ChucVuRepository implements ICommon<ChucVu, Boolean, String> {
+public class ChucVuRepository implements ICommonRepository<ChucVu, Boolean, String> {
 
     private static final Session session = HibernateUtil.getFactory().openSession();
     private String fromTable = "FROM ChucVu ";

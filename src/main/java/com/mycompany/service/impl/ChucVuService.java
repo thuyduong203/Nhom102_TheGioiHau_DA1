@@ -5,17 +5,17 @@
 package com.mycompany.service.impl;
 
 import com.mycompany.domainModel.ChucVu;
-import com.mycompany.repository.ICommon;
 import com.mycompany.repository.impl.ChucVuRepository;
 import java.util.List;
+import com.mycompany.repository.ICommonRepository;
 
 /**
  *
  * @author Admin
  */
-public class ChucVuService implements com.mycompany.service.ICommon<ChucVu, String> {
+public class ChucVuService implements com.mycompany.service.ICommonService<ChucVu, String> {
 
-    private final ICommon cvs = new ChucVuRepository();
+    private final ICommonRepository cvs = new ChucVuRepository();
 
     @Override
     public List<ChucVu> getAll() {

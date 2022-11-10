@@ -7,15 +7,15 @@ package com.mycompany.service.impl;
 import com.mycompany.domainModel.KhachHang;
 import com.mycompany.repository.impl.KhachHangRepository;
 import java.util.List;
-import com.mycompany.repository.ICommon;
+import com.mycompany.repository.ICommonRepository;
 
 /**
  *
  * @author Admin
  */
-public class KhachHangService implements com.mycompany.service.ICommon<KhachHang,String> {
+public class KhachHangService implements com.mycompany.service.ICommonService<KhachHang,String> {
 
-    private final ICommon khr = new KhachHangRepository();
+    private final ICommonRepository khr = new KhachHangRepository();
 
     @Override
     public List<KhachHang> getAll() {

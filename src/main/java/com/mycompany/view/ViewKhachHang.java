@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import com.mycompany.service.ICommon;
+import com.mycompany.service.ICommonService;
 
 /**
  *
@@ -24,7 +24,7 @@ public class ViewKhachHang extends javax.swing.JFrame {
 
     private DefaultTableModel dtm;
     private List<KhachHang> lsKhachHangs;
-    private ICommon khs;
+    private ICommonService khs;
 
     public ViewKhachHang() {
         initComponents();

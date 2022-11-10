@@ -5,11 +5,11 @@
 package com.mycompany.view;
 
 import com.mycompany.domainModel.Ban;
-import com.mycompany.service.ICommon;
 import com.mycompany.service.impl.BanService;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import com.mycompany.service.ICommonService;
 
 /**
  *
@@ -19,7 +19,7 @@ public class ViewBan extends javax.swing.JFrame {
 
     private DefaultTableModel dtm;
     private List<Ban> lstBans;
-    private ICommon bs;
+    private ICommonService bs;
 
     public ViewBan() {
         initComponents();

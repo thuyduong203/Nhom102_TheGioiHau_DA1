@@ -12,7 +12,7 @@ import java.util.List;
  */
 //O = Object
 //S = String
-public interface ICommon<O,S> {
+public interface ICommonService<O,S> {
 
     List<O> getAll();
 

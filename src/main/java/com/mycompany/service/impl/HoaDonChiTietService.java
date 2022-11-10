@@ -7,9 +7,9 @@ package com.mycompany.service.impl;
 import com.mycompany.domainModel.HoaDon;
 import com.mycompany.domainModel.HoaDonChiTiet;
 import com.mycompany.repository.impl.HoaDonChiTietRepository;
-import com.mycompany.service.ICommon;
 import com.mycompany.service.IHoaDonChiTiet;
 import java.util.List;
+import com.mycompany.service.ICommonService;
 
 /**
  *

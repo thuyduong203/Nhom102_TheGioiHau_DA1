@@ -11,13 +11,13 @@ import java.util.List;
 import javax.persistence.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import com.mycompany.repository.ICommon;
+import com.mycompany.repository.ICommonRepository;
 
 /**
  *
  * @author Admin
  */
-public class KhachHangRepository implements ICommon<KhachHang, Boolean, String> {
+public class KhachHangRepository implements ICommonRepository<KhachHang, Boolean, String> {
 
     private static final Session session = HibernateUtil.getFactory().openSession();
     private String fromTable = "FROM KhachHang ";
