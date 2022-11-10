@@ -673,7 +673,7 @@
                                       <Component id="btnCombo" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Component id="btnGiamTrang" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
                                       <Component id="lbSoTrang" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -1106,7 +1106,7 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="ff" red="66" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="+"/>
+                <Property name="text" type="java.lang.String" value="&gt;"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btnGiamTrang">
@@ -1114,7 +1114,7 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="ff" red="66" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="-"/>
+                <Property name="text" type="java.lang.String" value="&lt;"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lbSoTrang">

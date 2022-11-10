@@ -20,7 +20,7 @@ public class ViewTrangChu extends javax.swing.JFrame {
         initComponents();
         tbHoaDon.setModel(dtmHoaDon);
         tbHoaDonCT.setModel(dtmHoaDonCT);
-        String headerHoaDon [] = {"","STT","MÃ HĐ","MÃ KH","Tổng Tiền","Tiền Khách Đưa","Tiền Thừa","Ngày Tạo","Bàn","TT","Ghi Chú"};
+        String headerHoaDon [] = {"","STT","MÃ HĐ","MÃ KH","Ngày Tạo","Bàn","Trạng Thái","Ghi Chú"};
         String headerHoaDonCT [] = {"","STT","Mã Sản Phẩm","Tên Sản Phẩm","Giá","Số lượng","Tổng Tiền"};
         dtmHoaDon.setColumnIdentifiers(headerHoaDon);
         dtmHoaDonCT.setColumnIdentifiers(headerHoaDonCT);
@@ -508,10 +508,10 @@ public class ViewTrangChu extends javax.swing.JFrame {
         );
 
         btnTangTrang.setBackground(new java.awt.Color(102, 255, 102));
-        btnTangTrang.setText("+");
+        btnTangTrang.setText(">");
 
         btnGiamTrang.setBackground(new java.awt.Color(102, 255, 102));
-        btnGiamTrang.setText("-");
+        btnGiamTrang.setText("<");
 
         lbSoTrang.setText("1");
 
@@ -545,7 +545,7 @@ public class ViewTrangChu extends javax.swing.JFrame {
                                 .addComponent(btnCombo)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnGiamTrang)
-                                .addGap(7, 7, 7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lbSoTrang)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnTangTrang)))
