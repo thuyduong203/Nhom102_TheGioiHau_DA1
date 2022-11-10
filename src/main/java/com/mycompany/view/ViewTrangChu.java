@@ -95,9 +95,6 @@ public class ViewTrangChu extends javax.swing.JFrame {
         btnBan13 = new javax.swing.JButton();
         btnBan7 = new javax.swing.JButton();
         btnBan12 = new javax.swing.JButton();
-        btnTangTrang = new javax.swing.JButton();
-        btnGiamTrang = new javax.swing.JButton();
-        lbSoTrang = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         lbNhanVien = new javax.swing.JLabel();
         lbNgayGio = new javax.swing.JLabel();
@@ -385,7 +382,7 @@ public class ViewTrangChu extends javax.swing.JFrame {
         cbbTang.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         cbbTang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tầng 1", "Tầng 2" }));
 
-        jPanel7.setBackground(new java.awt.Color(153, 102, 0));
+        jPanel7.setBackground(new java.awt.Color(153, 51, 0));
         jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
         btnBan1.setBackground(new java.awt.Color(153, 255, 51));
@@ -463,7 +460,7 @@ public class ViewTrangChu extends javax.swing.JFrame {
                     .addComponent(btnBan7, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
                     .addComponent(btnBan2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnBan12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnBan3, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
                     .addComponent(btnBan8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -507,14 +504,6 @@ public class ViewTrangChu extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        btnTangTrang.setBackground(new java.awt.Color(102, 255, 102));
-        btnTangTrang.setText(">");
-
-        btnGiamTrang.setBackground(new java.awt.Color(102, 255, 102));
-        btnGiamTrang.setText("<");
-
-        lbSoTrang.setText("1");
-
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -535,20 +524,14 @@ public class ViewTrangChu extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(lbTenSanPham, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(btnSearchSanPham)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(btnSearchSanPham))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(btnDoAn)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnDoUong)
                                 .addGap(18, 18, 18)
-                                .addComponent(btnCombo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnGiamTrang)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbSoTrang)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnTangTrang)))
+                                .addComponent(btnCombo)))
+                        .addGap(0, 204, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -563,10 +546,7 @@ public class ViewTrangChu extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnDoAn)
                     .addComponent(btnDoUong)
-                    .addComponent(btnCombo)
-                    .addComponent(btnGiamTrang)
-                    .addComponent(btnTangTrang)
-                    .addComponent(lbSoTrang))
+                    .addComponent(btnCombo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -893,7 +873,6 @@ public class ViewTrangChu extends javax.swing.JFrame {
     private javax.swing.JButton btnDoAn;
     private javax.swing.JButton btnDoUong;
     private javax.swing.JButton btnDoiMK;
-    private javax.swing.JButton btnGiamTrang;
     private javax.swing.JButton btnGiaoCa;
     private javax.swing.JButton btnHoaDon;
     private javax.swing.JButton btnHuy;
@@ -905,7 +884,6 @@ public class ViewTrangChu extends javax.swing.JFrame {
     private javax.swing.JButton btnSearchSanPham;
     private javax.swing.JButton btnTachBan;
     private javax.swing.JButton btnTachHD;
-    private javax.swing.JButton btnTangTrang;
     private javax.swing.JButton btnTaoHD;
     private javax.swing.JButton btnThanhToan;
     private javax.swing.JButton btnThanhToanVaIn;
@@ -945,7 +923,6 @@ public class ViewTrangChu extends javax.swing.JFrame {
     private javax.swing.JLabel lbNgayGio;
     private javax.swing.JLabel lbNhanVien;
     private javax.swing.JLabel lbSoBan;
-    private javax.swing.JLabel lbSoTrang;
     private javax.swing.JTextField lbTenSanPham;
     private javax.swing.JTable tbHoaDon;
     private javax.swing.JTable tbHoaDonCT;

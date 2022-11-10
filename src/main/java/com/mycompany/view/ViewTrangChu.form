@@ -663,7 +663,6 @@
                                       <Component id="lbTenSanPham" min="-2" pref="183" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="btnSearchSanPham" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="btnDoAn" min="-2" max="-2" attributes="0"/>
@@ -671,14 +670,9 @@
                                       <Component id="btnDoUong" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="btnCombo" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="btnGiamTrang" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="lbSoTrang" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="btnTangTrang" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="204" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -699,9 +693,6 @@
                           <Component id="btnDoAn" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnDoUong" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnCombo" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnGiamTrang" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnTangTrang" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbSoTrang" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
@@ -852,7 +843,7 @@
             <Container class="javax.swing.JPanel" name="jPanel7">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="66" red="99" type="rgb"/>
+                  <Color blue="0" green="33" red="99" type="rgb"/>
                 </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -879,7 +870,7 @@
                               <Component id="btnBan2" alignment="0" max="32767" attributes="0"/>
                               <Component id="btnBan12" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="47" max="32767" attributes="0"/>
+                          <EmptySpace pref="44" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="btnBan3" alignment="0" pref="81" max="32767" attributes="0"/>
                               <Component id="btnBan8" alignment="0" max="32767" attributes="0"/>
@@ -1101,27 +1092,6 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="btnTangTrang">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="66" green="ff" red="66" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="&gt;"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnGiamTrang">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="66" green="ff" red="66" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="&lt;"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lbSoTrang">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="1"/>
-              </Properties>
-            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel2">
