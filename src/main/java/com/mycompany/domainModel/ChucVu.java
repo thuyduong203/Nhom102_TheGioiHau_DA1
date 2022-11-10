@@ -49,6 +49,6 @@ public class ChucVu {
     
 
     public Object[] toDataRow() {
-        return new Object[]{ma, ten, trangThai == 1 ? "Chưa xoá" : "Đã xoá"};
+        return new Object[]{ma, ten};
     }
 }

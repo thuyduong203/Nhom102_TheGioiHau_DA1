@@ -14,6 +14,7 @@ import java.util.List;
 //O = Object
 //B = boolean
 //S = String
+//I = integer
 public interface ICommon<O, B, S> {
 
     List<O> getAll();

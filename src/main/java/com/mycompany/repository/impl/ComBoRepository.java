@@ -25,14 +25,15 @@ public class ComBoRepository implements ICommon<ComBo, Boolean, String> {
 
     @Override
     public List<ComBo> getAll() {
-        Query query = session.createQuery(fromTable);
+        String hql = fromTable +"WHERE trangThai = 0";
+        Query query = session.createQuery(hql);
         List<ComBo> comBos = query.getResultList();
         return comBos;
     }
 
     @Override
     public ComBo getOne(String ma) {
-        String hql = fromTable + "WHERE maCB = :ma";
+        String hql = fromTable + "WHERE maCB = :ma and trangThai = 0";
         Query query = session.createQuery(hql);
         query.setParameter("ma", ma);
         ComBo cb = (ComBo) query.getSingleResult();
@@ -79,7 +80,7 @@ public class ComBoRepository implements ICommon<ComBo, Boolean, String> {
     @Override
     public Boolean remove(String ma) {
         Transaction transaction = null;
-        String hql = "DELETE " + fromTable
+        String hql = "UPDATE " + fromTable +"SET trangThai = 1"
                 + "WHERE maCB = :ma";
         int check = 0;
         try {

@@ -17,21 +17,22 @@ import com.mycompany.repository.ICommon;
  *
  * @author Admin
  */
-public class KhachHangRepository implements ICommon<KhachHang,Boolean,String> {
+public class KhachHangRepository implements ICommon<KhachHang, Boolean, String> {
 
     private static final Session session = HibernateUtil.getFactory().openSession();
     private String fromTable = "FROM KhachHang ";
 
     @Override
     public List<KhachHang> getAll() {
-        Query query = session.createQuery(fromTable);
+        String hql = fromTable + "WHERE trangThai = 0";
+        Query query = session.createQuery(hql);
         List<KhachHang> khachHangs = query.getResultList();
         return khachHangs;
     }
 
     @Override
     public KhachHang getOne(String ma) {
-        String hql = fromTable + "WHERE ma = :ma";
+        String hql = fromTable + "WHERE ma = :ma and trangThai = 0";
         Query query = session.createQuery(hql);
         KhachHang kh = (KhachHang) query.getSingleResult();
         return kh;
@@ -85,7 +86,8 @@ public class KhachHangRepository implements ICommon<KhachHang,Boolean,String> {
 
     @Override
     public Boolean remove(String ma) {
-        String hql = "DELETE " + fromTable + "WHERE ma = :ma";
+        String hql = "UPDATE " + fromTable +"SET trangThai = 1"
+                + "WHERE ma = :ma";
         int check = 0;
         Transaction transaction = null;
         try {
@@ -99,16 +101,6 @@ public class KhachHangRepository implements ICommon<KhachHang,Boolean,String> {
             e.printStackTrace();
         }
         return check > 0;
-    }
-
-    public static void main(String[] args) {
-        String ngaySinh = "2003-04-22";
-        KhachHang kh = new KhachHang(null, "KH002", "Nguyễn", "Đức", "Dụng", "Nam", Date.valueOf(ngaySinh), "0339927992", "Trung Nghĩa", "Bắc Ninh", "Việt Nam", 0);
-        boolean test = new KhachHangRepository().add(kh);
-        List<KhachHang> khachHangs = new KhachHangRepository().getAll();
-        for (KhachHang khachHang : khachHangs) {
-            System.out.println(khachHang.toString());
-        }
     }
 
 }

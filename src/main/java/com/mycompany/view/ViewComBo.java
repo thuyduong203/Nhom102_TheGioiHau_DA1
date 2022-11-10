@@ -111,6 +111,11 @@ public class ViewComBo extends javax.swing.JFrame {
         });
 
         btnExit.setText("EXit");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
 
         tbShow.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -236,6 +241,11 @@ public class ViewComBo extends javax.swing.JFrame {
         lstComBos = cbs.getAll();
         showData(lstComBos);
     }//GEN-LAST:event_btnRemoveActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_btnExitActionPerformed
 
     /**
      * @param args the command line arguments
