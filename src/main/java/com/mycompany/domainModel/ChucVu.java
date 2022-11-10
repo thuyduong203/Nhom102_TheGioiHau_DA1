@@ -44,8 +44,8 @@ public class ChucVu {
     @Column(name = "TrangThai")
     private Integer trangThai;
 
-    @OneToMany(mappedBy = "chucVu", fetch = FetchType.LAZY)
-    private List<NhanVien> listNV;
+//    @OneToMany(mappedBy = "chucVu", fetch = FetchType.LAZY)
+//    private List<NhanVien> listNV;
     
 
     public Object[] toDataRow() {

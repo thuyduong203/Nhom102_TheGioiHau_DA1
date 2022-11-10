@@ -72,17 +72,17 @@ public class NhanVien {
     @Column(name = "TrangThai", nullable = false)
     private Integer trangThai;
     
-    @OneToMany(mappedBy = "nhanVien", fetch = FetchType.LAZY)
-    private List<KhuyenMai> listKM;
+//    @OneToMany(mappedBy = "nhanVien", fetch = FetchType.LAZY)
+//    private List<KhuyenMai> listKM;
+//    
+//    @OneToMany(mappedBy = "nhanVien", fetch = FetchType.LAZY)
+//    private List<ComBo> listCB;
+//    
+//    @OneToMany(mappedBy = "nhanVien", fetch = FetchType.LAZY)
+//    private List<HoaDon> listHD;
     
-    @OneToMany(mappedBy = "nhanVien", fetch = FetchType.LAZY)
-    private List<ComBo> listCB;
-    
-    @OneToMany(mappedBy = "nhanVien", fetch = FetchType.LAZY)
-    private List<HoaDon> listHD;
-    
-    @OneToMany(mappedBy = "nhanVien", fetch = FetchType.LAZY)
-    private List<CaLamViec> listCLV;
+//    @OneToMany(mappedBy = "nhanVien", fetch = FetchType.LAZY)
+//    private List<CaLamViec> listCLV;
 
     public Object[] toDataRow() {
         return new Object[]{};

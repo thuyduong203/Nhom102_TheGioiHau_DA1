@@ -37,17 +37,19 @@ public class Ban {
     @GeneratedValue(generator = "generator")
     @Column(name = "IdBan", columnDefinition = "uniqueidentifier")
     private String id;
-    
+
     @Column(name = "MaBan", nullable = false)
     private Integer maBan;
-    
+
     @Column(name = "SoLuongChoNgoi", nullable = false)
     private Integer soLuongChoNgoi;
-    
+
     @Column(name = "TrangThai", nullable = true)
     private Integer trangThai;
-    
-    @OneToMany(mappedBy = "ban", fetch = FetchType.LAZY)
-    private List<HoaDonChiTiet> listHDC;
 
+//    @OneToMany(mappedBy = "ban", fetch = FetchType.LAZY)
+//    private List<HoaDonChiTiet> listHDC;
+    public Object[] toDataRow() {
+        return new Object[]{maBan, soLuongChoNgoi};
+    }
 }

@@ -65,4 +65,7 @@ public class KhachHang {
     @Column(name = "TrangThai")
     private Integer trangThai;
 
+    public Object[] toDataRow() {
+        return new Object[]{ma, ho + " " + tenDem + " " + ten, gioiTinh, ngaySinh, sdt, diaChi, thanhPho, quocGia, trangThai};
+    }
 }

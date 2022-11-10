@@ -53,11 +53,11 @@ public class MonAn {
     @Column(name = "TrangThai")
     private Integer trangThai;
     
-    @OneToMany(mappedBy = "monAn", fetch = FetchType.LAZY)
-    private List<ChiTietComBo> listCTCB;
-    
-    @OneToMany(mappedBy = "monAn", fetch = FetchType.LAZY)
-    private List<HoaDonChiTiet> listHDCT;
+//    @OneToMany(mappedBy = "monAn", fetch = FetchType.LAZY)
+//    private List<ChiTietComBo> listCTCB;
+//    
+//    @OneToMany(mappedBy = "monAn", fetch = FetchType.LAZY)
+//    private List<HoaDonChiTiet> listHDCT;
     
     
 

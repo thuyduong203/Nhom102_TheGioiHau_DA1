@@ -59,11 +59,13 @@ public class ComBo {
 
     @Column(name = "TrangThai")
     private Integer trangThai;
-    
-    @OneToMany(mappedBy = "comBo", fetch = FetchType.LAZY)
-    private List<ChiTietComBo> listCTCB;
-    
-    @OneToMany(mappedBy = "comBo", fetch = FetchType.LAZY)
-    private List<HoaDonChiTiet> listHDCT;
 
+//    @OneToMany(mappedBy = "comBo", fetch = FetchType.LAZY)
+//    private List<ChiTietComBo> listCTCB;
+//    
+//    @OneToMany(mappedBy = "comBo", fetch = FetchType.LAZY)
+//    private List<HoaDonChiTiet> listHDCT;
+    public Object[] toDataRow() {
+        return new Object[]{maCB, tenCB, donGia,};
+    }
 }

@@ -28,32 +28,36 @@ import org.hibernate.annotations.GenericGenerator;
 @ToString
 public class HoaDonChiTiet {
 
-      @Id
+    @Id
     @GenericGenerator(name = "generator", strategy = "guid", parameters = {})
     @GeneratedValue(generator = "generator")
     @Column(name = "IdHDCT", columnDefinition = "uniqueidentifier", nullable = false)
     private String id;
-    
+
     @ManyToOne
     @JoinColumn(name = "IdBan", nullable = false)
     private Ban ban;
-    
+
     @ManyToOne
     @JoinColumn(name = "IdMonAn")
     private MonAn monAn;
-    
+
     @ManyToOne
     @JoinColumn(name = "IdHD", nullable = false)
     private HoaDon hoaDon;
-    
+
     @ManyToOne
     @JoinColumn(name = "IdComBo")
     private ComBo comBo;
-    
-    @Column(name = "SoLuong",nullable = false)
+
+    @Column(name = "SoLuong", nullable = false)
     private Integer soLuong;
-    
-    @Column(name = "DonGia",nullable = false)
+
+    @Column(name = "DonGia", nullable = false)
     private BigDecimal donGia;
-    
+
+    public Object[] toDataRow() {
+        return new Object[]{monAn.getId(), hoaDon.getId(), ban.getId(), comBo==null?"Null":comBo.getId(), soLuong, donGia};
+    }
+
 }

@@ -35,7 +35,7 @@ public class HoaDon {
     @Id
     @GenericGenerator(name = "generator", strategy = "guid", parameters = {})
     @GeneratedValue(generator = "generator")
-    @Column(name = "IdCV", columnDefinition = "uniqueidentifier", nullable = false)
+    @Column(name = "IdHD", columnDefinition = "uniqueidentifier", nullable = false)
     private String id;
 
     @Column(name = "MaHD", nullable = false)
@@ -70,7 +70,7 @@ public class HoaDon {
     @Column(name = "TrangThai")
     private Integer trangThai;
     
-    @OneToMany(mappedBy = "hoaDon", fetch = FetchType.LAZY)
-    private List<HoaDonChiTiet> listHDCT;
+//    @OneToMany(mappedBy = "hoaDon", fetch = FetchType.LAZY)
+//    private List<HoaDonChiTiet> listHDCT;
 
 }
