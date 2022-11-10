@@ -4,13 +4,12 @@
  */
 package com.mycompany.domainModel;
 
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,33 +20,31 @@ import org.hibernate.annotations.GenericGenerator;
 
 /**
  *
- * @author Admin
+ * @author son45
  */
 @Entity
-@Table(name = "Ban")
+@Table(name = "Chi_Tiet_Combo")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @ToString
-public class Ban {
+public class ChiTietComBo {
 
     @Id
     @GenericGenerator(name = "generator", strategy = "guid", parameters = {})
     @GeneratedValue(generator = "generator")
-    @Column(name = "IdBan", columnDefinition = "uniqueidentifier")
+    @Column(name = "Id", columnDefinition = "uniqueidentifier", nullable = false)
     private String id;
-    
-    @Column(name = "MaBan", nullable = false)
-    private Integer maBan;
-    
-    @Column(name = "SoLuongChoNgoi", nullable = false)
-    private Integer soLuongChoNgoi;
-    
-    @Column(name = "TrangThai", nullable = true)
-    private Integer trangThai;
-    
-    @OneToMany(mappedBy = "ban", fetch = FetchType.LAZY)
-    private List<HoaDonChiTiet> listHDC;
 
+    @ManyToOne
+    @JoinColumn(name = "IdComBo", nullable = false)
+    private ComBo comBo;
+
+    @ManyToOne
+    @JoinColumn(name = "IdMonAn", nullable = false)
+    private MonAn monAn;
+
+    @Column(name = "SoLuongMonAn", nullable = false)
+    private Integer soLuongMonAn;
 }

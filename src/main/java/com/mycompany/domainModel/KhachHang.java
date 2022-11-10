@@ -5,12 +5,20 @@
 package com.mycompany.domainModel;
 
 import java.sql.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.GenericGenerator;
 
+@Entity
+@Table(name = "Khach_Hang")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -18,28 +26,43 @@ import lombok.ToString;
 @ToString
 public class KhachHang {
 
+    @Id
+    @GenericGenerator(name = "generator", strategy = "guid", parameters = {})
+    @GeneratedValue(generator = "generator")
+    @Column(name = "IdKH", columnDefinition = "uniqueidentifier", nullable = false)
     private String id;
-    
+
+    @Column(name = "MaKH", nullable = false)
     private String ma;
-    
+
+    @Column(name = "Ho")
     private String ho;
-    
+
+    @Column(name = "TenDem")
     private String tenDem;
-    
+
+    @Column(name = "Ten")
     private String ten;
-    
+
+    @Column(name = "GioiTinh")
     private String gioiTinh;
-    
+
+    @Column(name = "NgaySinh")
     private Date ngaySinh;
-    
+
+    @Column(name = "Sdt")
     private String sdt;
-    
+
+    @Column(name = "DiaChi")
     private String diaChi;
-    
+
+    @Column(name = "ThanhPho")
     private String thanhPho;
-    
+
+    @Column(name = "QuocGia")
     private String quocGia;
-    
+
+    @Column(name = "TrangThai")
     private Integer trangThai;
-    
+
 }

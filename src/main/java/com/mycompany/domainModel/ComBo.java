@@ -4,12 +4,15 @@
  */
 package com.mycompany.domainModel;
 
+import java.math.BigDecimal;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -21,33 +24,46 @@ import org.hibernate.annotations.GenericGenerator;
 
 /**
  *
- * @author Admin
+ * @author son45
  */
 @Entity
-@Table(name = "Ban")
+@Table(name = "ComBo")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @ToString
-public class Ban {
+public class ComBo {
 
     @Id
     @GenericGenerator(name = "generator", strategy = "guid", parameters = {})
     @GeneratedValue(generator = "generator")
-    @Column(name = "IdBan", columnDefinition = "uniqueidentifier")
+    @Column(name = "IdComBo", columnDefinition = "uniqueidentifier", nullable = false)
     private String id;
-    
-    @Column(name = "MaBan", nullable = false)
-    private Integer maBan;
-    
-    @Column(name = "SoLuongChoNgoi", nullable = false)
-    private Integer soLuongChoNgoi;
-    
-    @Column(name = "TrangThai", nullable = true)
+
+    @ManyToOne
+    @JoinColumn(name = "IdNV", nullable = false)
+    private NhanVien nhanVien;
+
+    @Column(name = "MaCB", nullable = false)
+    private String maCB;
+
+    @Column(name = "TenCB", nullable = false)
+    private String tenCB;
+
+    @Column(name = "HinhAnh")
+    private String hinhAnh;
+
+    @Column(name = "DonGia", nullable = false)
+    private BigDecimal donGia;
+
+    @Column(name = "TrangThai")
     private Integer trangThai;
     
-    @OneToMany(mappedBy = "ban", fetch = FetchType.LAZY)
-    private List<HoaDonChiTiet> listHDC;
+    @OneToMany(mappedBy = "comBo", fetch = FetchType.LAZY)
+    private List<ChiTietComBo> listCTCB;
+    
+    @OneToMany(mappedBy = "comBo", fetch = FetchType.LAZY)
+    private List<HoaDonChiTiet> listHDCT;
 
 }

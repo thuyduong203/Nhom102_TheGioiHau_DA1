@@ -4,13 +4,14 @@
  */
 package com.mycompany.domainModel;
 
-import java.util.List;
+import java.math.BigDecimal;
+import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,30 +25,35 @@ import org.hibernate.annotations.GenericGenerator;
  * @author Admin
  */
 @Entity
-@Table(name = "Ban")
+@Table(name = "Khuyen_Mai_Chi_Tiet")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @ToString
-public class Ban {
+public class KhuyenMaiChiTiet {
 
     @Id
     @GenericGenerator(name = "generator", strategy = "guid", parameters = {})
     @GeneratedValue(generator = "generator")
-    @Column(name = "IdBan", columnDefinition = "uniqueidentifier")
+    @Column(name = "IdCTKM", columnDefinition = "uniqueidentifier", nullable = false)
     private String id;
-    
-    @Column(name = "MaBan", nullable = false)
-    private Integer maBan;
-    
-    @Column(name = "SoLuongChoNgoi", nullable = false)
-    private Integer soLuongChoNgoi;
-    
-    @Column(name = "TrangThai", nullable = true)
-    private Integer trangThai;
-    
-    @OneToMany(mappedBy = "ban", fetch = FetchType.LAZY)
-    private List<HoaDonChiTiet> listHDC;
+
+    @ManyToOne
+    @JoinColumn(name = "IdMonAn", nullable = false)
+    private MonAn monAn;
+
+    @ManyToOne
+    @JoinColumn(name = "IdKM", nullable = false)
+    private KhuyenMai khuyenMai;
+
+    @Column(name = "ThoiGianBatDau", nullable = false)
+    private Date thoiGianBatDau;
+
+    @Column(name = "ThoiGianKetThuc", nullable = false)
+    private Date thoiGianKetThuc;
+
+    @Column(name = "GiaTriKM", nullable = false)
+    private BigDecimal giaTriKhuyenMai;
 
 }
