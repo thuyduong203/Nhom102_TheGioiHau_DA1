@@ -74,7 +74,6 @@ public class ViewKH extends javax.swing.JFrame {
         txtDiaChi = new javax.swing.JTextArea();
         txtQuocGia = new javax.swing.JTextField();
         txtTrangThai = new javax.swing.JTextField();
-        txtNgaySinh = new com.toedter.calendar.JDateChooser();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -294,14 +293,11 @@ public class ViewKH extends javax.swing.JFrame {
                             .addComponent(jLabel9)
                             .addComponent(jLabel10))
                         .addGap(26, 26, 26)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(radioNam)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(radioNu)
-                                .addGap(18, 18, 18)
-                                .addComponent(radioKhongXacDinh))
-                            .addComponent(txtNgaySinh, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(radioNam)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(radioNu)
+                        .addGap(18, 18, 18)
+                        .addComponent(radioKhongXacDinh)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
@@ -374,9 +370,7 @@ public class ViewKH extends javax.swing.JFrame {
                             .addComponent(jLabel15)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNgaySinh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10))))
+                        .addComponent(jLabel10)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -596,7 +590,6 @@ public class ViewKH extends javax.swing.JFrame {
     private javax.swing.JTextArea txtDiaChi;
     private javax.swing.JTextField txtHo;
     private javax.swing.JTextField txtMa;
-    private com.toedter.calendar.JDateChooser txtNgaySinh;
     private javax.swing.JTextField txtQuocGia;
     private javax.swing.JTextField txtSdt;
     private javax.swing.JTextField txtSearch;
