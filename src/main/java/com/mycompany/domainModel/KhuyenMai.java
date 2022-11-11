@@ -49,7 +49,7 @@ public class KhuyenMai {
 
     @Column(name = "LoaiKM", nullable = false)
     private String loaiKhuyenMai;
-    
+
     @Column(name = "GhiChu")
     private String ghiChu;
 

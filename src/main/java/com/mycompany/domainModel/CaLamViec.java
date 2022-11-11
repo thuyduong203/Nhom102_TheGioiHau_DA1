@@ -25,7 +25,7 @@ import org.hibernate.annotations.GenericGenerator;
  * @author Admin
  */
 @Entity
-@Table(name = "Ca_Lam_Vie")
+@Table(name = "Ca_Lam_Viec")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
