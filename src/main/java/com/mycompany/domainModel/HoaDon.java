@@ -69,8 +69,10 @@ public class HoaDon {
 
     @Column(name = "TrangThai")
     private Integer trangThai;
-    
+
 //    @OneToMany(mappedBy = "hoaDon", fetch = FetchType.LAZY)
 //    private List<HoaDonChiTiet> listHDCT;
-
+    public Object[] toDataRow() {
+        return new Object[]{maHoaDon, nhanVien.getId(), khachHang.getId(), ngayTao, ngayThanhToan, tongTien, hinhThucThanhToan, tienKhachDua, ghiChu};
+    }
 }

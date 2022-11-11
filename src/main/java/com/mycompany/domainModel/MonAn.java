@@ -34,31 +34,32 @@ public class MonAn {
     @GeneratedValue(generator = "generator")
     @Column(name = "IdMonAn", columnDefinition = "uniqueidentifier", nullable = false)
     private String id;
-    
+
     @Column(name = "MaMonAn", nullable = false)
     private String maMonAn;
-    
+
     @Column(name = "TenMonAn", nullable = false)
     private String tenMonAn;
-    
+
     @Column(name = "HinhAnh")
     private String hinhAnh;
-    
+
     @Column(name = "DonGia", nullable = false)
     private BigDecimal donGia;
-    
+
     @Column(name = "DonViTinh", nullable = false)
     private String donViTinh;
-    
+
     @Column(name = "TrangThai")
     private Integer trangThai;
-    
+
 //    @OneToMany(mappedBy = "monAn", fetch = FetchType.LAZY)
 //    private List<ChiTietComBo> listCTCB;
 //    
 //    @OneToMany(mappedBy = "monAn", fetch = FetchType.LAZY)
 //    private List<HoaDonChiTiet> listHDCT;
-    
-    
+    public Object[] toDataRow() {
+        return new Object[]{maMonAn, tenMonAn, donViTinh, donGia};
+    }
 
 }

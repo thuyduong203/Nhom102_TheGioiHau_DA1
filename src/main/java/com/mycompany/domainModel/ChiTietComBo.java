@@ -47,4 +47,8 @@ public class ChiTietComBo {
 
     @Column(name = "SoLuongMonAn", nullable = false)
     private Integer soLuongMonAn;
+    
+    public Object[] toDataRow() {
+        return new Object[]{monAn, comBo, soLuongMonAn};
+    }
 }
