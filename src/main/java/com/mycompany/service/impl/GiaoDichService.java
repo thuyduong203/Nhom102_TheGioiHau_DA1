@@ -19,13 +19,15 @@ public class GiaoDichService implements ICommonService<GiaoDich, String> {
 
     @Override
     public List<GiaoDich> getAll() {
-    return gdr.getAll();}
+        return gdr.getAll();
+    }
 
     @Override
     public GiaoDich getOne(String ma) {
-    return gdr.getOne(ma);}
+        return gdr.getOne(ma);
+    }
 
-     @Override
+    @Override
     public String add(GiaoDich nv) {
         if (gdr.add(nv)) {
             return "Them thanh cong";
