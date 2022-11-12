@@ -59,14 +59,14 @@ public class HoaDonService implements ICommonService<HoaDon, String> {
         }
     }
 
-    public static void main(String[] args) {
-        NhanVien nv = new NhanVien();
-        nv.setId("E26EFCD1-8F31-446A-B791-5A11F3ED0C2A");
-        KhachHang kh = new KhachHang();
-        kh.setId("09D9DF89-6F3E-4DD1-8B1E-55E1835F3CEC");
-        HoaDon hd = new HoaDon(null, null, nv, kh, Date.valueOf("2022-11-11"), Date.valueOf("2022-11-11"), BigDecimal.valueOf(700000), "Tiền mặt", BigDecimal.valueOf(500000), "HIiii", 0);
-        String test = new HoaDonService().update(hd,"HD04");
-        System.out.println(test);
-    }
+//    public static void main(String[] args) {
+//        NhanVien nv = new NhanVien();
+//        nv.setId("E26EFCD1-8F31-446A-B791-5A11F3ED0C2A");
+//        KhachHang kh = new KhachHang();
+//        kh.setId("09D9DF89-6F3E-4DD1-8B1E-55E1835F3CEC");
+//        HoaDon hd = new HoaDon(null, null, nv, kh, Date.valueOf("2022-11-11"), Date.valueOf("2022-11-11"), BigDecimal.valueOf(700000), "Tiền mặt", BigDecimal.valueOf(500000), "HIiii", 0);
+//        String test = new HoaDonService().update(hd,"HD04");
+//        System.out.println(test);
+//    }
 
 }

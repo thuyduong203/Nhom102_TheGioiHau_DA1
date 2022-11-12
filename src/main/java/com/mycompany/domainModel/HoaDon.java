@@ -48,6 +48,10 @@ public class HoaDon {
     @ManyToOne
     @JoinColumn(name = "IdKH", nullable = true)
     private KhachHang khachHang;
+    
+    @ManyToOne
+    @JoinColumn(name = "IdBan",nullable = false)
+    private Ban ban;
 
     @Column(name = "NgayTao", nullable = false)
     private Date ngayTao;

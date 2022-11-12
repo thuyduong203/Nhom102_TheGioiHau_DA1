@@ -4,15 +4,10 @@
  */
 package com.mycompany.domainModel;
 
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,41 +16,27 @@ import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.annotations.GenericGenerator;
 
-/**
- *
- * @author Admin
- */
+@Table(name = "Khu_Vuc")
 @Entity
-@Table(name = "Ban")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @ToString
-public class Ban {
-
+public class KhuVuc {
     @Id
     @GenericGenerator(name = "generator", strategy = "guid", parameters = {})
     @GeneratedValue(generator = "generator")
-    @Column(name = "IdBan", columnDefinition = "uniqueidentifier")
-    private String id;
+    @Column(name = "IdKV", columnDefinition = "uniqueidentifier", nullable = false)
+    private String idKV;
     
-    @ManyToOne
-    @JoinColumn(name = "IdKhuVuc",nullable = false)
-    private ChucVu cv;
-
-    @Column(name = "MaBan", nullable = false)
-    private Integer maBan;
-
-    @Column(name = "SoLuongChoNgoi", nullable = false)
-    private Integer soLuongChoNgoi;
-
-    @Column(name = "TrangThai", nullable = true)
+    @Column(name = "MaKhuVuc",nullable = false)
+    private String maKV;
+    
+    @Column(name = "TenKhuVuc",nullable = false)
+    private String tenKV;
+    
+    @Column(name = "TrangThai")
     private Integer trangThai;
-
-//    @OneToMany(mappedBy = "ban", fetch = FetchType.LAZY)
-//    private List<HoaDonChiTiet> listHDC;
-    public Object[] toDataRow() {
-        return new Object[]{maBan, soLuongChoNgoi};
-    }
+    
 }
