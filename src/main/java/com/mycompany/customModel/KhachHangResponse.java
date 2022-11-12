@@ -38,7 +38,7 @@ public class KhachHangResponse {
 
     private String quocGia;
     
-    public Object[] toDataRow() {
-        return new Object[]{ma, hoTen, gioiTinh, ngaySinh, sdt, diaChi, thanhPho, quocGia};
-    }
+//    public Object[] toDataRow() {
+//        return new Object[]{ma, hoTen, gioiTinh, ngaySinh, sdt, diaChi, thanhPho, quocGia};
+//    }
 }
