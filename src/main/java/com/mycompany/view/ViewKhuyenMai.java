@@ -140,7 +140,7 @@ public class ViewKhuyenMai extends javax.swing.JFrame {
                 .addComponent(lbNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbNgayGio, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnTrangChu)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
@@ -199,7 +199,7 @@ public class ViewKhuyenMai extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(511, 511, 511)
+                        .addGap(626, 626, 626)
                         .addComponent(jLabel2)
                         .addGap(185, 185, 185)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -207,7 +207,7 @@ public class ViewKhuyenMai extends javax.swing.JFrame {
                             .addComponent(txtSearch))
                         .addGap(18, 18, 18)
                         .addComponent(btnSearch)))
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -226,7 +226,7 @@ public class ViewKhuyenMai extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(504, Short.MAX_VALUE))
+                .addContainerGap(580, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -288,7 +288,19 @@ public class ViewKhuyenMai extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBan;
+    private javax.swing.JButton btnCombo;
+    private javax.swing.JButton btnCombo1;
+    private javax.swing.JButton btnCombo2;
+    private javax.swing.JButton btnCombo3;
     private javax.swing.JButton btnDangXuat;
+    private javax.swing.JButton btnDoAn;
+    private javax.swing.JButton btnDoAn1;
+    private javax.swing.JButton btnDoAn2;
+    private javax.swing.JButton btnDoAn3;
+    private javax.swing.JButton btnDoUong;
+    private javax.swing.JButton btnDoUong1;
+    private javax.swing.JButton btnDoUong2;
+    private javax.swing.JButton btnDoUong3;
     private javax.swing.JButton btnDoiMK;
     private javax.swing.JButton btnGiaoCa;
     private javax.swing.JButton btnHoaDon;
@@ -296,17 +308,37 @@ public class ViewKhuyenMai extends javax.swing.JFrame {
     private javax.swing.JButton btnKhuyenMai;
     private javax.swing.JButton btnSanPham;
     private javax.swing.JButton btnSearch;
+    private javax.swing.JButton btnSearchSanPham;
+    private javax.swing.JButton btnSearchSanPham1;
+    private javax.swing.JButton btnSearchSanPham2;
+    private javax.swing.JButton btnSearchSanPham3;
     private javax.swing.JButton btnThongKe;
     private javax.swing.JButton btnTrangChu;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JLabel lbNgayGio;
     private javax.swing.JLabel lbNhanVien;
+    private javax.swing.JTextField lbTenSanPham;
+    private javax.swing.JTextField lbTenSanPham1;
+    private javax.swing.JTextField lbTenSanPham2;
+    private javax.swing.JTextField lbTenSanPham3;
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }
