@@ -34,13 +34,13 @@ public class ViewKhachHang extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        lbNhanVien = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         btnGiaoCa = new javax.swing.JButton();
         btnDoiMK = new javax.swing.JButton();
         btnDangXuat = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        lbNhanVien = new javax.swing.JLabel();
         lbNgayGio = new javax.swing.JLabel();
         btnTrangChu = new javax.swing.JButton();
         btnHoaDon = new javax.swing.JButton();
@@ -89,6 +89,9 @@ public class ViewKhachHang extends javax.swing.JFrame {
         btnRemove = new javax.swing.JButton();
         btnClear = new javax.swing.JButton();
 
+        lbNhanVien.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lbNhanVien.setText("Welcome: Nguyễn Đức Dụng - Nhân Viên");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
@@ -131,9 +134,6 @@ public class ViewKhachHang extends javax.swing.JFrame {
         );
 
         jPanel2.setBackground(new java.awt.Color(153, 255, 255));
-
-        lbNhanVien.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lbNhanVien.setText("Welcome: Nguyễn Đức Dụng - Nhân Viên");
 
         lbNgayGio.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lbNgayGio.setText("12:05:13 10-11-2022");
@@ -180,9 +180,7 @@ public class ViewKhachHang extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(256, 256, 256)
                 .addComponent(lbNgayGio, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addComponent(btnTrangChu)
@@ -206,9 +204,7 @@ public class ViewKhachHang extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lbNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lbNgayGio, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbNgayGio, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -303,7 +299,7 @@ public class ViewKhachHang extends javax.swing.JFrame {
                                     .addComponent(txtTen, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(349, 349, 349))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(173, 173, 173)
+                        .addGap(179, 179, 179)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel9)
                             .addComponent(jLabel10))

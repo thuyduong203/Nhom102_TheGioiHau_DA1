@@ -4,6 +4,14 @@
   <NonVisualComponents>
     <Component class="javax.swing.ButtonGroup" name="buttonGroup1">
     </Component>
+    <Component class="javax.swing.JLabel" name="lbNhanVien">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="12" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Welcome: Nguy&#x1ec5;n &#x110;&#x1ee9;c D&#x1ee5;ng - Nh&#xe2;n Vi&#xea;n"/>
+      </Properties>
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -217,9 +225,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lbNhanVien" min="-2" pref="244" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="256" max="-2" attributes="0"/>
                       <Component id="lbNgayGio" min="-2" pref="121" max="-2" attributes="0"/>
                       <EmptySpace pref="61" max="32767" attributes="0"/>
                       <Component id="btnTrangChu" min="-2" max="-2" attributes="0"/>
@@ -245,10 +251,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="lbNhanVien" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                              <Component id="lbNgayGio" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="lbNgayGio" alignment="0" min="-2" pref="24" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -269,14 +272,6 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="lbNhanVien">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="12" style="1"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Welcome: Nguy&#x1ec5;n &#x110;&#x1ee9;c D&#x1ee5;ng - Nh&#xe2;n Vi&#xea;n"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="lbNgayGio">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -427,7 +422,7 @@
                               <EmptySpace min="-2" pref="349" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="173" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="179" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
