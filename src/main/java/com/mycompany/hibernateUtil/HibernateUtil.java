@@ -5,7 +5,6 @@
 package com.mycompany.hibernateUtil;
 
 import com.mycompany.domainModel.Ban;
-import com.mycompany.domainModel.CaLamViec;
 import com.mycompany.domainModel.ChiTietComBo;
 import com.mycompany.domainModel.ChucVu;
 import com.mycompany.domainModel.ComBo;
@@ -48,7 +47,6 @@ private static final SessionFactory FACTORY;
 
         ServiceRegistry registry = new StandardServiceRegistryBuilder().applySettings(conf.getProperties()).build();
         conf.addAnnotatedClass(Ban.class);
-        conf.addAnnotatedClass(CaLamViec.class);
         conf.addAnnotatedClass(ChiTietComBo.class);
         conf.addAnnotatedClass(ChucVu.class);
         conf.addAnnotatedClass(ComBo.class);
