@@ -39,7 +39,7 @@ public class GiaoDich {
     private String idGiaoDich;
 
     @ManyToOne
-    @JoinColumn(name = "Id_HD")
+    @JoinColumn(name = "IdHD")
     private HoaDon hoaDon;
 
     @Column(name = "HinhThucThanhToan")
