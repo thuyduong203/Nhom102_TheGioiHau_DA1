@@ -55,4 +55,11 @@ public class BanService implements com.mycompany.service.ICommonService<Ban, Str
         }
     }
     
+    public static void main(String[] args) {
+        List<Ban> bans = new BanService().getAll();
+        for (Ban ban : bans) {
+            System.out.println(ban.toString());
+        }
+    }
+    
 }

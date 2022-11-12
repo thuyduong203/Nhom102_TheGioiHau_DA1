@@ -8,9 +8,11 @@ import com.mycompany.domainModel.Ban;
 import com.mycompany.domainModel.ChiTietComBo;
 import com.mycompany.domainModel.ChucVu;
 import com.mycompany.domainModel.ComBo;
+import com.mycompany.domainModel.DanhMuc;
 import com.mycompany.domainModel.HoaDon;
 import com.mycompany.domainModel.HoaDonChiTiet;
 import com.mycompany.domainModel.KhachHang;
+import com.mycompany.domainModel.KhuVuc;
 import com.mycompany.domainModel.KhuyenMai;
 import com.mycompany.domainModel.KhuyenMaiChiTiet;
 import com.mycompany.domainModel.MonAn;
@@ -39,7 +41,7 @@ private static final SessionFactory FACTORY;
         properties.put(Environment.DRIVER, "com.microsoft.sqlserver.jdbc.SQLServerDriver");
         properties.put(Environment.URL, "jdbc:sqlserver://localhost:1433;databaseName=DuAn1Nhom102");
         properties.put(Environment.USER, "sa");
-        properties.put(Environment.PASS, "123");
+        properties.put(Environment.PASS, "123123");
         properties.put(Environment.SHOW_SQL, "true");
 //        properties.put(Environment.HBM2DDL_AUTO, "create"); // tu dong tao ra cac truong trong sql
 
@@ -57,6 +59,8 @@ private static final SessionFactory FACTORY;
         conf.addAnnotatedClass(KhuyenMaiChiTiet.class);
         conf.addAnnotatedClass(MonAn.class);
         conf.addAnnotatedClass(NhanVien.class);
+        conf.addAnnotatedClass(KhuVuc.class);
+        conf.addAnnotatedClass(DanhMuc.class);
 
         FACTORY = conf.buildSessionFactory(registry);
     }
