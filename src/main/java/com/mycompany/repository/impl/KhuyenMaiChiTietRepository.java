@@ -75,9 +75,9 @@ public class KhuyenMaiChiTietRepository implements ICommonRepository<KhuyenMaiCh
                         + " WHERE id = :idKMCT");
                 query.setParameter("monAn", khuyenMaiChiTiet.getMonAn());
                 query.setParameter("khuyenMai", khuyenMaiChiTiet.getKhuyenMai());
-                query.setParameter("tgianBD", khuyenMaiChiTiet.getThoiGianBatDau());
-                query.setParameter("tgianKT", khuyenMaiChiTiet.getThoiGianKetThuc());
-                query.setParameter("gtriKM", khuyenMaiChiTiet.getGiaTriKhuyenMai());
+//                query.setParameter("tgianBD", khuyenMaiChiTiet.getThoiGianBatDau());
+//                query.setParameter("tgianKT", khuyenMaiChiTiet.getThoiGianKetThuc());
+//                query.setParameter("gtriKM", khuyenMaiChiTiet.getGiaTriKhuyenMai());
                 query.setParameter("idKMCT", id);
                 check = query.executeUpdate();
                 transaction.commit();
@@ -117,17 +117,17 @@ public class KhuyenMaiChiTietRepository implements ICommonRepository<KhuyenMaiCh
 //        }
 //        KhuyenMaiChiTiet khuyenMaiChiTiet = new KhuyenMaiChiTietRepository().getOne("dfghj");
 //        System.out.println(khuyenMaiChiTiet.toString());
-        KhuyenMai khuyenMai = new KhuyenMai();
-        khuyenMai.setId("0D473A3E-3B37-4CC8-A75D-E5AB862E1DF3");
-        MonAn monAn = new MonAn();
-        monAn.setId("ABC304A9-8D7C-4FF9-A91A-DA47E16E70D2");
-        KhuyenMaiChiTiet khuyenMaiChiTiet = new KhuyenMaiChiTiet();
-        khuyenMaiChiTiet.setGiaTriKhuyenMai(BigDecimal.valueOf(10));
-        khuyenMaiChiTiet.setKhuyenMai(khuyenMai);
-        khuyenMaiChiTiet.setMonAn(monAn);
-        khuyenMaiChiTiet.setThoiGianBatDau(Date.valueOf("2003-11-29"));
-        khuyenMaiChiTiet.setThoiGianKetThuc(Date.valueOf("2004-11-30"));
-        boolean add = new KhuyenMaiChiTietRepository().remove("8537CDFD-5966-4343-805C-1E304CAD03A9");
-        System.out.println(add);
+//        KhuyenMai khuyenMai = new KhuyenMai();
+//        khuyenMai.setId("0D473A3E-3B37-4CC8-A75D-E5AB862E1DF3");
+//        MonAn monAn = new MonAn();
+//        monAn.setId("ABC304A9-8D7C-4FF9-A91A-DA47E16E70D2");
+//        KhuyenMaiChiTiet khuyenMaiChiTiet = new KhuyenMaiChiTiet();
+//        khuyenMaiChiTiet.setGiaTriKhuyenMai(BigDecimal.valueOf(10));
+//        khuyenMaiChiTiet.setKhuyenMai(khuyenMai);
+//        khuyenMaiChiTiet.setMonAn(monAn);
+//        khuyenMaiChiTiet.setThoiGianBatDau(Date.valueOf("2003-11-29"));
+//        khuyenMaiChiTiet.setThoiGianKetThuc(Date.valueOf("2004-11-30"));
+//        boolean add = new KhuyenMaiChiTietRepository().remove("8537CDFD-5966-4343-805C-1E304CAD03A9");
+//        System.out.println(add);
     }
 }
