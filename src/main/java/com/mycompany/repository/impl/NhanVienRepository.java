@@ -63,19 +63,18 @@ public class NhanVienRepository implements ICommonRepository<NhanVien, Boolean, 
     }
 
     @Override
-    public Boolean update(NhanVien nv, String id) {
+    public Boolean update(NhanVien nv, String ma) {
         int check = 0;
         try ( Session session = HibernateUtil.getFactory().openSession()) {
             Transaction transaction = session.getTransaction();
             transaction.begin();
             try {
                 Query query = session.createQuery("UPDATE NhanVien SET chucVu = :chucVuNV,"
-                        + "ma = :maNV, ho = :hoNV, tenDem = :tenDemNV, ten = :tenNV,"
+                        + " ho = :hoNV, tenDem = :tenDemNV, ten = :tenNV,"
                         + "gioiTinh = :gioiTinhNV, soDienThoai = :sdtNV, ngaySinh = :ngaySinhNV,"
                         + "diaChi = :diaChiNV, matKhau = :matKhauNV, trangThai = :trangThaiNV"
-                        + " WHERE id = :id");
+                        + " WHERE ma = :maNV");
                 query.setParameter("chucVuNV", nv.getChucVu());
-                query.setParameter("maNV", nv.getMa());
                 query.setParameter("hoNV", nv.getHo());
                 query.setParameter("tenDemNV", nv.getTenDem());
                 query.setParameter("tenNV", nv.getTen());
@@ -85,7 +84,7 @@ public class NhanVienRepository implements ICommonRepository<NhanVien, Boolean, 
                 query.setParameter("diaChiNV", nv.getDiaChi());
                 query.setParameter("matKhauNV", nv.getMatKhau());
                 query.setParameter("trangThaiNV", nv.getTrangThai());
-                query.setParameter("id", id);
+                query.setParameter("maNV", ma);
                 check = query.executeUpdate();
                 transaction.commit();
             } catch (Exception e) {
@@ -98,14 +97,14 @@ public class NhanVienRepository implements ICommonRepository<NhanVien, Boolean, 
     }
 
     @Override
-    public Boolean remove(String id) {
+    public Boolean remove(String ma) {
         int check = 0;
         try ( Session session = HibernateUtil.getFactory().openSession()) {
             Transaction transaction = session.getTransaction();
             transaction.begin();
             try {
-                Query query = session.createQuery("DELETE FROM NhanVien WHERE id = :idNV");
-                query.setParameter("idNV", id);
+                Query query = session.createQuery("DELETE FROM NhanVien WHERE ma = :maNV");
+                query.setParameter("maNV", ma);
                 check = query.executeUpdate();
                 transaction.commit();
             } catch (Exception e) {

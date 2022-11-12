@@ -6,15 +6,12 @@ package com.mycompany.domainModel;
 
 import java.math.BigDecimal;
 import java.sql.Date;
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -48,9 +45,9 @@ public class HoaDon {
     @ManyToOne
     @JoinColumn(name = "IdKH", nullable = true)
     private KhachHang khachHang;
-    
+
     @ManyToOne
-    @JoinColumn(name = "IdBan",nullable = false)
+    @JoinColumn(name = "IdBan", nullable = false)
     private Ban ban;
 
     @Column(name = "NgayTao", nullable = false)

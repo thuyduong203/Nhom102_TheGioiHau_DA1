@@ -12,7 +12,6 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ViewHoaDon extends javax.swing.JFrame {
 
-
     /**
      * Creates new form View
      */

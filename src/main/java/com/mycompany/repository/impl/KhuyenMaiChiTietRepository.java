@@ -9,8 +9,6 @@ import com.mycompany.domainModel.KhuyenMaiChiTiet;
 import com.mycompany.domainModel.MonAn;
 import com.mycompany.hibernateUtil.HibernateUtil;
 import com.mycompany.repository.ICommonRepository;
-import java.math.BigDecimal;
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Query;
@@ -32,12 +30,15 @@ public class KhuyenMaiChiTietRepository implements ICommonRepository<KhuyenMaiCh
         }
         return listKMCT;
     }
+////khuyến mãi chi tiết getOne theo id
 
     @Override
-    public KhuyenMaiChiTiet getOne(String ma) {
+    public KhuyenMaiChiTiet getOne(String idKMCT) {
         KhuyenMaiChiTiet khuyenMaiChiTiet = new KhuyenMaiChiTiet();
         try ( Session session = HibernateUtil.getFactory().openSession()) {
-            Query query = session.createQuery("FROM KhuyenMaiChiTiet");
+            Query query = session.createQuery("FROM KhuyenMaiChiTiet WHERE id = :idKMCT");
+            query.setParameter("idKMCT", idKMCT);
+            khuyenMaiChiTiet = (KhuyenMaiChiTiet) query.getSingleResult();
         } finally {
             return khuyenMaiChiTiet;
         }
@@ -61,6 +62,7 @@ public class KhuyenMaiChiTietRepository implements ICommonRepository<KhuyenMaiCh
             return isAdd;
         }
     }
+//update theo Id
 
     @Override
     public Boolean update(KhuyenMaiChiTiet khuyenMaiChiTiet, String id) {
@@ -70,14 +72,10 @@ public class KhuyenMaiChiTietRepository implements ICommonRepository<KhuyenMaiCh
             transaction.begin();
             try {
                 Query query = session.createQuery("UPDATE KhuyenMaiChiTiet SET monAn = :monAn,"
-                        + "khuyenMai = :khuyenMai, thoiGianBatDau = :tgianBD,"
-                        + "thoiGianKetThuc = :tgianKT, giaTriKhuyenMai = :gtriKM"
+                        + "khuyenMai = :khuyenMai "
                         + " WHERE id = :idKMCT");
                 query.setParameter("monAn", khuyenMaiChiTiet.getMonAn());
                 query.setParameter("khuyenMai", khuyenMaiChiTiet.getKhuyenMai());
-//                query.setParameter("tgianBD", khuyenMaiChiTiet.getThoiGianBatDau());
-//                query.setParameter("tgianKT", khuyenMaiChiTiet.getThoiGianKetThuc());
-//                query.setParameter("gtriKM", khuyenMaiChiTiet.getGiaTriKhuyenMai());
                 query.setParameter("idKMCT", id);
                 check = query.executeUpdate();
                 transaction.commit();
@@ -117,17 +115,17 @@ public class KhuyenMaiChiTietRepository implements ICommonRepository<KhuyenMaiCh
 //        }
 //        KhuyenMaiChiTiet khuyenMaiChiTiet = new KhuyenMaiChiTietRepository().getOne("dfghj");
 //        System.out.println(khuyenMaiChiTiet.toString());
-//        KhuyenMai khuyenMai = new KhuyenMai();
-//        khuyenMai.setId("0D473A3E-3B37-4CC8-A75D-E5AB862E1DF3");
-//        MonAn monAn = new MonAn();
-//        monAn.setId("ABC304A9-8D7C-4FF9-A91A-DA47E16E70D2");
-//        KhuyenMaiChiTiet khuyenMaiChiTiet = new KhuyenMaiChiTiet();
+        KhuyenMai khuyenMai = new KhuyenMai();
+        khuyenMai.setId("47538DF6-03C4-4018-854B-00FDB279703D");
+        MonAn monAn = new MonAn();
+        monAn.setId("85E4B7C8-2D83-4EE6-962D-A0B7AA6140A0");
+        KhuyenMaiChiTiet khuyenMaiChiTiet = new KhuyenMaiChiTiet();
 //        khuyenMaiChiTiet.setGiaTriKhuyenMai(BigDecimal.valueOf(10));
-//        khuyenMaiChiTiet.setKhuyenMai(khuyenMai);
-//        khuyenMaiChiTiet.setMonAn(monAn);
+        khuyenMaiChiTiet.setKhuyenMai(khuyenMai);
+        khuyenMaiChiTiet.setMonAn(monAn);
 //        khuyenMaiChiTiet.setThoiGianBatDau(Date.valueOf("2003-11-29"));
 //        khuyenMaiChiTiet.setThoiGianKetThuc(Date.valueOf("2004-11-30"));
-//        boolean add = new KhuyenMaiChiTietRepository().remove("8537CDFD-5966-4343-805C-1E304CAD03A9");
-//        System.out.println(add);
+        boolean add = new KhuyenMaiChiTietRepository().remove("1232C281-7A25-40F2-93FE-776343F78673");
+        System.out.println(add);
     }
 }

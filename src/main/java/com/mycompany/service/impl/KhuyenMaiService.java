@@ -7,6 +7,7 @@ package com.mycompany.service.impl;
 import com.mycompany.domainModel.KhuyenMai;
 import com.mycompany.repository.impl.KhuyenMaiRepository;
 import com.mycompany.service.ICommonService;
+import com.mycompany.util.ThongBao;
 import java.util.List;
 
 /**
@@ -16,6 +17,7 @@ import java.util.List;
 public class KhuyenMaiService implements ICommonService<KhuyenMai, String> {
 
     private KhuyenMaiRepository kmRepo = new KhuyenMaiRepository();
+    private ThongBao thongBao = new ThongBao();
 
     @Override
     public List<KhuyenMai> getAll() {
@@ -29,29 +31,17 @@ public class KhuyenMaiService implements ICommonService<KhuyenMai, String> {
 
     @Override
     public String add(KhuyenMai kh) {
-        if (kmRepo.add(kh)) {
-            return "Thêm thành công";
-        } else {
-            return "Thêm thất bại";
-        }
+        return thongBao.thongBaoADD(kmRepo.add(kh));
     }
 
     @Override
     public String update(KhuyenMai kh, String ma) {
-        if (kmRepo.update(kh, ma)) {
-            return "Update thành công";
-        } else {
-            return "Update thất bại";
-        }
+        return thongBao.thongBaoUPDATE(kmRepo.update(kh, ma));
     }
 
     @Override
     public String remove(String ma) {
-        if (kmRepo.remove(ma)) {
-            return "Delete thành công";
-        } else {
-            return "Delete thất bại";
-        }
+        return thongBao.thongBaoDELETE(kmRepo.remove(ma));
     }
 
 }

@@ -4,9 +4,11 @@
  */
 package com.mycompany.repository.impl;
 
+import com.mycompany.domainModel.DanhMuc;
 import com.mycompany.domainModel.MonAn;
 import com.mycompany.hibernateUtil.HibernateUtil;
 import com.mycompany.repository.ICommonRepository;
+import java.math.BigDecimal;
 import java.util.List;
 import javax.persistence.Query;
 import org.hibernate.Session;
@@ -33,6 +35,7 @@ public class MonAnRepository implements ICommonRepository<MonAn, Boolean, String
     public MonAn getOne(String ma) {
         String hql = fromTable + "WHERE trangThai = 0 ANH maMonAn = :ma";
         Query query = session.createQuery(hql);
+        query.setParameter("ma", ma);
         MonAn monAn = (MonAn) query.getSingleResult();
         return monAn;
     }
@@ -54,7 +57,8 @@ public class MonAnRepository implements ICommonRepository<MonAn, Boolean, String
 
     @Override
     public Boolean update(MonAn kh, String ma) {
-        String hql = "UPDATE " + fromTable + "SET tenMonAn = :ten, hinhAnh = :hinhAnh, donGia = :donGia, donViTinh = :donViTinh "
+        String hql = "UPDATE " + fromTable + "SET tenMonAn = :ten, hinhAnh = :hinhAnh, donGia = :donGia, donViTinh = :donViTinh,"
+                + "loai = :loaiMA  "
                 + "WHERE maMonAn =:ma";
         Transaction transaction = null;
         int check = 0;
@@ -66,6 +70,7 @@ public class MonAnRepository implements ICommonRepository<MonAn, Boolean, String
             query.setParameter("hinhAnh", kh.getHinhAnh());
             query.setParameter("donGia", kh.getDonGia());
             query.setParameter("donViTinh", kh.getDonViTinh());
+            query.setParameter("loaiMA", kh.getLoai());
             query.setParameter("ma", ma);
             check = query.executeUpdate();
             transaction.commit();
@@ -78,7 +83,7 @@ public class MonAnRepository implements ICommonRepository<MonAn, Boolean, String
 
     @Override
     public Boolean remove(String ma) {
-        String hql = "UPDATE " + fromTable + "SET trangThai = 1 "
+        String hql = "UPDATE " + fromTable + "SET trangThai = 0 "
                 + "WHERE maMonAn =:ma";
         Transaction transaction = null;
         int check = 0;
@@ -93,5 +98,19 @@ public class MonAnRepository implements ICommonRepository<MonAn, Boolean, String
             e.printStackTrace();
         }
         return check > 0;
+    }
+
+    public static void main(String[] args) {
+        DanhMuc loaiMA = new DanhMuc();
+        loaiMA.setIdDanhMuc("57109CB2-7DA5-4245-A24C-5EF2BAD02EA3");
+        MonAn monAn = new MonAn();
+        monAn.setDonGia(BigDecimal.valueOf(200));
+        monAn.setDonViTinh("suất");
+        monAn.setLoai(loaiMA);
+        monAn.setMaMonAn("MA3");
+        monAn.setTenMonAn("xyzzzzzz");
+//        monAn.setTrangThai(0);
+        boolean add = new MonAnRepository().remove("MA3");
+        System.out.println(add);
     }
 }

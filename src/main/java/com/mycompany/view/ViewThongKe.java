@@ -4,8 +4,6 @@
  */
 package com.mycompany.view;
 
-import javax.swing.table.DefaultTableModel;
-
 /**
  *
  * @author Admin

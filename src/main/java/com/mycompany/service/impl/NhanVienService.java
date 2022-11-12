@@ -4,9 +4,12 @@
  */
 package com.mycompany.service.impl;
 
+import com.mycompany.domainModel.ChucVu;
 import com.mycompany.domainModel.NhanVien;
 import com.mycompany.repository.impl.NhanVienRepository;
 import com.mycompany.service.ICommonService;
+import com.mycompany.util.ThongBao;
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -16,6 +19,7 @@ import java.util.List;
 public class NhanVienService implements ICommonService<NhanVien, String> {
 
     private NhanVienRepository nvRepo = new NhanVienRepository();
+    private ThongBao thongBao = new ThongBao();
 
     @Override
     public List<NhanVien> getAll() {
@@ -29,29 +33,36 @@ public class NhanVienService implements ICommonService<NhanVien, String> {
 
     @Override
     public String add(NhanVien nv) {
-        if (nvRepo.add(nv)) {
-            return "Them thanh cong";
-        } else {
-            return "them that bai";
-        }
+        return thongBao.thongBaoADD(nvRepo.add(nv));
     }
 
     @Override
-    public String update(NhanVien nv, String id) {
-        if (nvRepo.update(nv, id)) {
-            return "Update thanh cong";
-        } else {
-            return "update that bai";
-        }
+    public String update(NhanVien nv, String ma) {
+        return thongBao.thongBaoUPDATE(nvRepo.update(nv, ma));
     }
 
     @Override
-    public String remove(String id) {
-        if (nvRepo.remove(id)) {
-            return "Xoa thanh cong";
-        } else {
-            return "Xoa that bai";
-        }
+    public String remove(String ma) {
+        return thongBao.thongBaoDELETE(nvRepo.remove(ma));
     }
 
+    public static void main(String[] args) {
+        ChucVu chucVu = new ChucVu();
+        chucVu.setId("E965EFB2-67DA-4CD5-92F7-F8EA920821D5");
+        NhanVien nhanVien = new NhanVien();
+        nhanVien.setChucVu(chucVu);
+        nhanVien.setDiaChi("a");
+        nhanVien.setGioiTinh("b");
+        nhanVien.setHo("a");
+        nhanVien.setMa("NV2");
+        nhanVien.setMatKhau("1234");
+        nhanVien.setNgaySinh(Date.valueOf("2003-11-29"));
+        nhanVien.setSoDienThoai("gfd");
+        nhanVien.setTen("gfds");
+        nhanVien.setTenDem("fdxs");
+        nhanVien.setTrangThai(0);
+        //System.out.println(new NhanVienService().remove("NV2"));
+//        NhanVien nv = new NhanVienService().getOne("NV1");
+//        System.out.println(nv.toString());
+    }
 }

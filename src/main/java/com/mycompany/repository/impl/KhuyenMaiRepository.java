@@ -8,6 +8,8 @@ import com.mycompany.domainModel.KhuyenMai;
 import com.mycompany.domainModel.NhanVien;
 import com.mycompany.hibernateUtil.HibernateUtil;
 import com.mycompany.repository.ICommonRepository;
+import java.math.BigDecimal;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Query;
@@ -68,13 +70,18 @@ public class KhuyenMaiRepository implements ICommonRepository<KhuyenMai, Boolean
             try {
                 Query query = session.createQuery("UPDATE KhuyenMai SET "
                         + "nhanVien = :nvTaoKM, tenKhuyenMai = :tenKM,"
-                        + "loaiKhuyenMai = :loaiKM, ghiChu = :ghiChuKM,"
+                        + "thoiGianBD = :tgianBD, thoiGianKT = :tgianKT, "
+                        + "loaiKhuyenMai = :loaiKM, giaTriKM = :gtriKM,"
+                        + " ghiChu = :ghiChuKM,"
                         + "trangThai = :trangThaiKM WHERE maKhuyenMai = :maKM");
                 query.setParameter("nvTaoKM", km.getNhanVien());
                 query.setParameter("tenKM", km.getTenKhuyenMai());
                 query.setParameter("loaiKM", km.getLoaiKhuyenMai());
                 query.setParameter("ghiChuKM", km.getGhiChu());
                 query.setParameter("trangThaiKM", km.getTrangThai());
+                query.setParameter("tgianBD", km.getThoiGianBD());
+                query.setParameter("tgianKT", km.getThoiGianKT());
+                query.setParameter("gtriKM", km.getGiaTriKM());
                 query.setParameter("maKM", ma);
                 check = query.executeUpdate();
                 transaction.commit();
@@ -109,16 +116,25 @@ public class KhuyenMaiRepository implements ICommonRepository<KhuyenMai, Boolean
 
     public static void main(String[] args) {
         NhanVien nhanVien = new NhanVien();
-        nhanVien.setId("00CAC64D-603B-452F-A68F-CD1A041D2EC7");
+        nhanVien.setId("471EEBD2-FB4A-4FF2-B4F9-308E8089E4CA");
         KhuyenMai khuyenMai = new KhuyenMai();
         khuyenMai.setGhiChu("ghi chú");
         khuyenMai.setLoaiKhuyenMai("loại km updateeee");
         khuyenMai.setMaKhuyenMai("KM1");
         khuyenMai.setNhanVien(nhanVien);
-        khuyenMai.setTenKhuyenMai("khuyến mãi 1");
+        khuyenMai.setTenKhuyenMai("khuyến mãi 111111");
         khuyenMai.setTrangThai(1);
+        khuyenMai.setGiaTriKM(BigDecimal.valueOf(10));
+        khuyenMai.setThoiGianBD(Date.valueOf("2003-11-29"));
+        khuyenMai.setThoiGianKT(Date.valueOf("2003-11-29"));
         boolean add = new KhuyenMaiRepository().add(khuyenMai);
         System.out.println(add);
+//        boolean add = new KhuyenMaiRepository().remove("KM1");
+//        System.out.println(add);
+//        List<KhuyenMai> list = new KhuyenMaiRepository().getAll();
+//        for (KhuyenMai khuyenMai1 : list) {
+//            System.out.println(khuyenMai1.toString());
+//        }
 //        KhuyenMai khuyenMai1 = new KhuyenMaiRepository().getOne("KM1");
 //        System.out.println(khuyenMai1.toString());
     }

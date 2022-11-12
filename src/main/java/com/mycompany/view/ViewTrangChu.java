@@ -11,8 +11,10 @@ import javax.swing.table.DefaultTableModel;
  * @author Admin
  */
 public class ViewTrangChu extends javax.swing.JFrame {
-   private DefaultTableModel dtmHoaDon = new DefaultTableModel();
-   private DefaultTableModel dtmHoaDonCT = new DefaultTableModel();
+
+    private DefaultTableModel dtmHoaDon = new DefaultTableModel();
+    private DefaultTableModel dtmHoaDonCT = new DefaultTableModel();
+
     /**
      * Creates new form View
      */
@@ -20,8 +22,8 @@ public class ViewTrangChu extends javax.swing.JFrame {
         initComponents();
         tbHoaDon.setModel(dtmHoaDon);
         tbHoaDonCT.setModel(dtmHoaDonCT);
-        String headerHoaDon [] = {"","STT","MÃ HĐ","MÃ KH","Ngày Tạo","Bàn","Trạng Thái","Ghi Chú"};
-        String headerHoaDonCT [] = {"","STT","Mã Sản Phẩm","Tên Sản Phẩm","Giá","Số lượng","Tổng Tiền"};
+        String headerHoaDon[] = {"", "STT", "MÃ HĐ", "MÃ KH", "Ngày Tạo", "Bàn", "Trạng Thái", "Ghi Chú"};
+        String headerHoaDonCT[] = {"", "STT", "Mã Sản Phẩm", "Tên Sản Phẩm", "Giá", "Số lượng", "Tổng Tiền"};
         dtmHoaDon.setColumnIdentifiers(headerHoaDon);
         dtmHoaDonCT.setColumnIdentifiers(headerHoaDonCT);
     }
@@ -826,10 +828,9 @@ public class ViewTrangChu extends javax.swing.JFrame {
 
     private void cbbTangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbTangActionPerformed
         // TODO add your handling code here:
-        if(cbbTang.getSelectedItem()=="Tầng 2"){
+        if (cbbTang.getSelectedItem() == "Tầng 2") {
             btnBan1.setText("Bàn 16");
-            }
-        else{
+        } else {
             btnBan1.setText("Bàn 1");
         }
     }//GEN-LAST:event_cbbTangActionPerformed
