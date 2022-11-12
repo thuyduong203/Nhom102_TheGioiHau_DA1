@@ -54,5 +54,11 @@ public class MonAnService implements com.mycompany.service.ICommonService<MonAn,
             return "Xoá thất bại";
         }
     }
+    public static void main(String[] args) {
+        List<MonAn> monAn = new MonAnService().getAll();
+        for (MonAn monAn1 : monAn) {
+            System.out.println(monAn1);
+        }
+    }
 
 }

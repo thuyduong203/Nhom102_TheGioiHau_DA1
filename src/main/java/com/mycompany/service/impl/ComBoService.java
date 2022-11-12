@@ -55,12 +55,5 @@ public class ComBoService implements ICommonService<ComBo, String> {
             return "Xoá thất bại";
         }
     }
-    public static void main(String[] args) {
-        NhanVien nv = new NhanVien();
-        nv.setId("E26EFCD1-8F31-446A-B791-5A11F3ED0C2A");
-        ComBo cb = new ComBo(null, nv, null, "aaaaaaa", "aa", BigDecimal.valueOf(200), 0);
-//        String test = new ComBoService().update("CB001");
-//        System.out.println(test);S
-    }
 
 }

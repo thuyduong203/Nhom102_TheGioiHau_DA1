@@ -4,43 +4,42 @@
  */
 package com.mycompany.repository.impl;
 
-import com.mycompany.domainModel.Ban;
-import com.mycompany.domainModel.KhuVuc;
+import com.mycompany.domainModel.DanhMuc;
 import com.mycompany.hibernateUtil.HibernateUtil;
+import com.mycompany.repository.ICommonRepository;
 import java.util.List;
 import javax.persistence.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import com.mycompany.repository.ICommonRepository;
 
 /**
  *
  * @author Admin
  */
-public class BanRepository implements ICommonRepository<Ban, Boolean, String> {
+public class DanhMucRepository implements ICommonRepository<DanhMuc, Boolean, String> {
 
     private static final Session session = HibernateUtil.getFactory().openSession();
-    private String fromTable = "FROM Ban ";
+    private String fromTable = "FROM DanhMuc ";
 
     @Override
-    public List<Ban> getAll() {
+    public List<DanhMuc> getAll() {
         String hql = fromTable + "WHERE trangThai = 0";
         Query query = session.createQuery(hql);
-        List<Ban> bans = query.getResultList();
-        return bans;
+        List<DanhMuc> danhMucs = query.getResultList();
+        return danhMucs;
     }
 
     @Override
-    public Ban getOne(String ma) {
-        String hql = fromTable + "WHERE maBan = :ma and trangThai = 0";
+    public DanhMuc getOne(String ma) {
+        String hql = fromTable + "WHERE trangThai = 0 AND maDanhMuc = :ma";
         Query query = session.createQuery(hql);
-        query.setParameter("ma", Integer.valueOf(ma));
-        Ban b = (Ban) query.getSingleResult();
-        return b;
+        query.setParameter("ma", ma);
+        DanhMuc dm = (DanhMuc) query.getSingleResult();
+        return dm;
     }
 
     @Override
-    public Boolean add(Ban kh) {
+    public Boolean add(DanhMuc kh) {
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
@@ -55,18 +54,16 @@ public class BanRepository implements ICommonRepository<Ban, Boolean, String> {
     }
 
     @Override
-    public Boolean update(Ban kh, String ma) {
-        String hql = "UPDATE " + fromTable + "SET soLuongChoNgoi = :soLuongChoNgoi,kv = :kv "
-                + "WHERE maBan = :ma";
+    public Boolean update(DanhMuc kh, String ma) {
+        String hql = "UPDATE " + fromTable + "SET loai = :loai,tenDanhMuc = :tenDanhMuc WHERE maDanhMuc = :ma ";
         Transaction transaction = null;
         int check = 0;
         try {
             transaction = session.beginTransaction();
-            session.clear();
             Query query = session.createQuery(hql);
-            query.setParameter("soLuongChoNgoi", kh.getSoLuongChoNgoi());
-            query.setParameter("kv", kh.getKv());
-            query.setParameter("ma", Integer.valueOf(ma));
+            query.setParameter("loai", kh.getLoai());
+            query.setParameter("tenDanhMuc", kh.getTenDanhMuc());
+            query.setParameter("ma", ma);
             check = query.executeUpdate();
             transaction.commit();
         } catch (Exception e) {
@@ -78,14 +75,13 @@ public class BanRepository implements ICommonRepository<Ban, Boolean, String> {
 
     @Override
     public Boolean remove(String ma) {
-        String hql = "UPDATE " + fromTable + "SET trangThai = 1"
-                + "WHERE maBan = :ma";
+        String hql = "UPDATE " + fromTable + "SET trangThai = 1 WHERE maDanhMuc = :ma ";
         Transaction transaction = null;
         int check = 0;
         try {
             transaction = session.beginTransaction();
             Query query = session.createQuery(hql);
-            query.setParameter("ma", Integer.valueOf(ma));
+            query.setParameter("ma", ma);
             check = query.executeUpdate();
             transaction.commit();
         } catch (Exception e) {

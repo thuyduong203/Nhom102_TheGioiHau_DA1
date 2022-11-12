@@ -62,12 +62,6 @@ public class HoaDon {
     @Column(name = "TongTien")
     private BigDecimal tongTien;
 
-    @Column(name = "HinhThucThanhToan", nullable = false)
-    private String hinhThucThanhToan;
-
-    @Column(name = "TienKhachDua")
-    private BigDecimal tienKhachDua;
-
     @Column(name = "GhiChu")
     private String ghiChu;
 
@@ -77,6 +71,6 @@ public class HoaDon {
 //    @OneToMany(mappedBy = "hoaDon", fetch = FetchType.LAZY)
 //    private List<HoaDonChiTiet> listHDCT;
     public Object[] toDataRow() {
-        return new Object[]{maHoaDon, nhanVien.getId(), khachHang.getId(), ngayTao, ngayThanhToan, tongTien, hinhThucThanhToan, tienKhachDua, ghiChu};
+        return new Object[]{maHoaDon, nhanVien.getId(), khachHang.getId(), ngayTao, ngayThanhToan, tongTien, ghiChu};
     }
 }

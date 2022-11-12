@@ -4,6 +4,7 @@
  */
 package com.mycompany.service.impl;
 
+import com.mycompany.domainModel.Ban;
 import com.mycompany.domainModel.HoaDon;
 import com.mycompany.domainModel.KhachHang;
 import com.mycompany.domainModel.NhanVien;
@@ -59,14 +60,31 @@ public class HoaDonService implements ICommonService<HoaDon, String> {
         }
     }
 
-//    public static void main(String[] args) {
-//        NhanVien nv = new NhanVien();
-//        nv.setId("E26EFCD1-8F31-446A-B791-5A11F3ED0C2A");
-//        KhachHang kh = new KhachHang();
-//        kh.setId("09D9DF89-6F3E-4DD1-8B1E-55E1835F3CEC");
-//        HoaDon hd = new HoaDon(null, null, nv, kh, Date.valueOf("2022-11-11"), Date.valueOf("2022-11-11"), BigDecimal.valueOf(700000), "Tiền mặt", BigDecimal.valueOf(500000), "HIiii", 0);
-//        String test = new HoaDonService().update(hd,"HD04");
-//        System.out.println(test);
-//    }
+    public static void main(String[] args) {
+        
+        NhanVien nv = new NhanVien();
+        nv.setId("A6FE78AD-C869-4C07-A70D-2DF2F07EB60D");
+        KhachHang kh = new KhachHang();
+        kh.setId("1D998F16-99A2-46DE-8EC1-18196017A20C");
+        Ban b = new Ban();
+        b.setId("6328E69A-4B84-41D2-A407-B236CBA20867");
+        HoaDon hd= new HoaDon();
+        hd.setMaHoaDon("HD01");
+        hd.setNhanVien(nv);
+        hd.setKhachHang(kh);
+        hd.setBan(b);
+        hd.setNgayTao(Date.valueOf("2022-11-12"));
+        hd.setNgayThanhToan(Date.valueOf("2022-11-12"));
+        hd.setTongTien(BigDecimal.valueOf(5000));
+        hd.setGhiChu("haaaaa");
+        hd.setTrangThai(0);
+        String test = new HoaDonService().remove("HD01");
+        System.out.println(test);
+        List<HoaDon> hoaDons = new HoaDonService().getAll();
+        for (HoaDon hoaDon : hoaDons) {
+            System.out.println(hoaDon.toString());
+        }
+
+    }
 
 }

@@ -186,3 +186,19 @@ ALTER TABLE Combo ADD CONSTRAINT FK_NV_Combo FOREIGN KEY (IdNV) REFERENCES Nhan_
 ALTER TABLE Ban ADD CONSTRAINT FK_KhuVuc FOREIGN KEY(IdKhuVuc) REFERENCES Khu_Vuc(IdKhuVuc)
 ALTER TABLE Mon_An ADD CONSTRAINT FK_Loai_monAN FOREIGN KEY(IdLoai) REFERENCES Danh_Muc(IdDanhMuc)
 ALTER TABLE Giao_Dich ADD CONSTRAINT FK_HD FOREIGN KEY(IdHD) REFERENCES Hoa_Don(IdHD)
+
+
+
+select* from Khu_Vuc
+select * from Ban
+select * from Chuc_Vu
+select * from Nhan_Vien
+select * from Danh_Muc
+select * from Combo
+select * from Mon_An
+select * from Chi_Tiet_Combo
+insert Khach_Hang(MaKH) values('KH02')
+insert into Danh_Muc(IdLoai,MaDanhMuc,TenDanhMuc) values('AA5EF128-4354-4917-9C5D-9E19B52F1C3F','DM03',N'Nước uống có ga')
+select * from Hoa_Don
+select * from Khach_Hang
+

@@ -53,12 +53,16 @@ public class ChiTietComBoService implements IChiTietComBoService<ChiTietComBo, S
     }
     public static void main(String[] args) {
         MonAn ma = new MonAn();
-        ma.setId("F140701F-1D94-49E6-97EC-46CDAB6D9EC6");
+        ma.setId("CFCA2AD6-A346-4C54-A3A8-279D6D782BA7");
         ComBo comBo = new ComBo();
-        comBo.setId("E791ED65-7819-44F0-BFF3-BEE9795F6E5D");
+        comBo.setId("761D26FA-AE41-42EB-996F-362679A2513A");
         ChiTietComBo ctcb = new ChiTietComBo(null, comBo, ma, 20);
-        String test = new ChiTietComBoService().update(ctcb,comBo,ma);
+        String test = new ChiTietComBoService().remove(ctcb,comBo,ma);
         System.out.println(test);
+        List<ChiTietComBo> chiTietComBos = new ChiTietComBoService().getAll();
+        for (ChiTietComBo chiTietComBo : chiTietComBos) {
+            System.out.println(chiTietComBo);
+        }
     }
 
 }

@@ -42,7 +42,7 @@ public class Ban {
     
     @ManyToOne
     @JoinColumn(name = "IdKhuVuc",nullable = false)
-    private ChucVu cv;
+    private KhuVuc kv;
 
     @Column(name = "MaBan", nullable = false)
     private Integer maBan;
@@ -55,7 +55,7 @@ public class Ban {
 
 //    @OneToMany(mappedBy = "ban", fetch = FetchType.LAZY)
 //    private List<HoaDonChiTiet> listHDC;
-    public Object[] toDataRow() {
-        return new Object[]{maBan, soLuongChoNgoi};
-    }
+//    public Object[] toDataRow() {
+//        return new Object[]{maBan, soLuongChoNgoi};
+//    }
 }

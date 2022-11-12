@@ -38,7 +38,7 @@ public class MonAn {
     private String id;
 
     @ManyToOne
-    @JoinColumn(name = "IdDanhMuc", nullable = false)
+    @JoinColumn(name = "IdLoai", nullable = false)
     private DanhMuc loai;
 
     @Column(name = "MaMonAn", nullable = false)

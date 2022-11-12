@@ -27,7 +27,7 @@ public class KhuVuc {
     @Id
     @GenericGenerator(name = "generator", strategy = "guid", parameters = {})
     @GeneratedValue(generator = "generator")
-    @Column(name = "IdKV", columnDefinition = "uniqueidentifier", nullable = false)
+    @Column(name = "IdKhuVuc", columnDefinition = "uniqueidentifier", nullable = false)
     private String idKV;
     
     @Column(name = "MaKhuVuc",nullable = false)

@@ -37,8 +37,11 @@ public class DanhMuc {
     @Column(name = "IdDanhMuc", columnDefinition = "uniqueidentifier", nullable = false)
     private String idDanhMuc;
 
-    @OneToMany(mappedBy = "IdDanhMuc", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<DanhMuc> lstLoai;
+    @ManyToOne
+    @JoinColumn(name = "idDanhMuc")
+    private DanhMuc loai;
+    
+    @Column(name = "maDanhMuc",nullable = false)
     private String maDanhMuc;
 
     @Column(name = "TenDanhMuc", nullable = false)

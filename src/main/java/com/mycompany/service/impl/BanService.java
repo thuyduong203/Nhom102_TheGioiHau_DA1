@@ -5,6 +5,7 @@
 package com.mycompany.service.impl;
 
 import com.mycompany.domainModel.Ban;
+import com.mycompany.domainModel.KhuVuc;
 import com.mycompany.repository.impl.BanRepository;
 import java.util.List;
 import com.mycompany.repository.ICommonRepository;
@@ -53,4 +54,5 @@ public class BanService implements com.mycompany.service.ICommonService<Ban, Str
             return "Xoá thất bại";
         }
     }
+    
 }
