@@ -57,7 +57,7 @@ public class ChiTietComBoService implements IChiTietComBoService<ChiTietComBo, S
         ComBo comBo = new ComBo();
         comBo.setId("761D26FA-AE41-42EB-996F-362679A2513A");
         ChiTietComBo ctcb = new ChiTietComBo(null, comBo, ma, 20);
-        String test = new ChiTietComBoService().remove(ctcb,comBo,ma);
+        String test = new ChiTietComBoService().add(ctcb);
         System.out.println(test);
         List<ChiTietComBo> chiTietComBos = new ChiTietComBoService().getAll();
         for (ChiTietComBo chiTietComBo : chiTietComBos) {

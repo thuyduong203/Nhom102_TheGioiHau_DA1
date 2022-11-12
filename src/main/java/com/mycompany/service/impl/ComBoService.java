@@ -55,5 +55,11 @@ public class ComBoService implements ICommonService<ComBo, String> {
             return "Xoá thất bại";
         }
     }
+    public static void main(String[] args) {
+        List<ComBo> test = new ComBoService().getAll();
+        for (ComBo comBo : test) {
+            System.out.println(comBo.toString());
+        }
+    }
 
 }

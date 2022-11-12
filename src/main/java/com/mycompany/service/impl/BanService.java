@@ -56,6 +56,11 @@ public class BanService implements com.mycompany.service.ICommonService<Ban, Str
     }
     
     public static void main(String[] args) {
+        KhuVuc kv = new KhuVuc();
+        kv.setIdKV("8E04689D-D3BD-42D9-82F6-71C99A4AF932");
+        Ban b = new Ban(null, kv, 3, 10, 0);
+        String test = new BanService().add(b);
+        System.out.println(test);
         List<Ban> bans = new BanService().getAll();
         for (Ban ban : bans) {
             System.out.println(ban.toString());

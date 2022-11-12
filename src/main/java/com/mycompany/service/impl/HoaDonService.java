@@ -69,16 +69,16 @@ public class HoaDonService implements ICommonService<HoaDon, String> {
         Ban b = new Ban();
         b.setId("6328E69A-4B84-41D2-A407-B236CBA20867");
         HoaDon hd= new HoaDon();
-        hd.setMaHoaDon("HD01");
+        hd.setMaHoaDon("HD02");
         hd.setNhanVien(nv);
         hd.setKhachHang(kh);
         hd.setBan(b);
         hd.setNgayTao(Date.valueOf("2022-11-12"));
         hd.setNgayThanhToan(Date.valueOf("2022-11-12"));
-        hd.setTongTien(BigDecimal.valueOf(5000));
+        hd.setTongTien(BigDecimal.valueOf(10000));
         hd.setGhiChu("haaaaa");
         hd.setTrangThai(0);
-        String test = new HoaDonService().remove("HD01");
+        String test = new HoaDonService().remove("HD02");
         System.out.println(test);
         List<HoaDon> hoaDons = new HoaDonService().getAll();
         for (HoaDon hoaDon : hoaDons) {
