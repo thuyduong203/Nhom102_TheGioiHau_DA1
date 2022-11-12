@@ -32,7 +32,7 @@ public class BanRepository implements ICommonRepository<Ban, Boolean, String> {
 
     @Override
     public Ban getOne(String ma) {
-        String hql = fromTable + "WHERE maBan = :ma and trangThai = 0";
+        String hql = fromTable + "WHERE maBan = :ma";
         Query query = session.createQuery(hql);
         query.setParameter("ma", Integer.valueOf(ma));
         Ban b = (Ban) query.getSingleResult();
@@ -93,6 +93,10 @@ public class BanRepository implements ICommonRepository<Ban, Boolean, String> {
             e.printStackTrace();
         }
         return check > 0;
+    }
+    public static void main(String[] args) {
+        Ban ban = new BanRepository().getOne("1");
+        System.out.println(ban);
     }
 
 }

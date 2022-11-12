@@ -33,7 +33,7 @@ public class MonAnRepository implements ICommonRepository<MonAn, Boolean, String
 
     @Override
     public MonAn getOne(String ma) {
-        String hql = fromTable + "WHERE trangThai = 0 ANH maMonAn = :ma";
+        String hql = fromTable + "WHERE maMonAn = :ma";
         Query query = session.createQuery(hql);
         query.setParameter("ma", ma);
         MonAn monAn = (MonAn) query.getSingleResult();

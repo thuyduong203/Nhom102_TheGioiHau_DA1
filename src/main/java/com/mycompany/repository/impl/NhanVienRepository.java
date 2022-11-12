@@ -117,21 +117,21 @@ public class NhanVienRepository implements ICommonRepository<NhanVien, Boolean, 
     }
 
     public static void main(String[] args) {
-        ChucVu chucVu = new ChucVu();
-        chucVu.setId("4FBC3358-868B-4CC6-A3DD-821199DF8EE3");
-        NhanVien nhanVien = new NhanVien();
-        nhanVien.setChucVu(chucVu);
-        nhanVien.setDiaChi("d");
-        nhanVien.setGioiTinh("nM");
-        nhanVien.setHo("họ");
-        nhanVien.setMa("NV2");
-        nhanVien.setMatKhau("123");
-        nhanVien.setNgaySinh(Date.valueOf("2003-11-29"));
-        nhanVien.setSoDienThoai("5678");
-        nhanVien.setTen("Tên");
-        nhanVien.setTenDem("tên đệm");
-        nhanVien.setTrangThai(1);
-        boolean add = new NhanVienRepository().add(nhanVien);
+//        ChucVu chucVu = new ChucVu();
+//        chucVu.setId("4FBC3358-868B-4CC6-A3DD-821199DF8EE3");
+//        NhanVien nhanVien = new NhanVien();
+//        nhanVien.setChucVu(chucVu);
+//        nhanVien.setDiaChi("d");
+//        nhanVien.setGioiTinh("nM");
+//        nhanVien.setHo("họ");
+//        nhanVien.setMa("NV2");
+//        nhanVien.setMatKhau("123");
+//        nhanVien.setNgaySinh(Date.valueOf("2003-11-29"));
+//        nhanVien.setSoDienThoai("5678");
+//        nhanVien.setTen("Tên");
+//        nhanVien.setTenDem("tên đệm");
+//        nhanVien.setTrangThai(1);
+        NhanVien add = new NhanVienRepository().getOne("NV02");
         System.out.println(add);
     }
 }

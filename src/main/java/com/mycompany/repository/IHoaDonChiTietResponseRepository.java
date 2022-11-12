@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package com.mycompany.service;
+package com.mycompany.repository;
 
 import com.mycompany.customModel.KhachHangResponse;
 import java.util.List;
@@ -11,8 +11,8 @@ import java.util.List;
  *
  * @author Admin
  */
-public interface IKhachHangResponse {
+public interface IHoaDonChiTietResponseRepository<O,I> {
 
-    List<KhachHangResponse> getAll(int trangThai);
+    List<O> getAll(I trangThai);
     
 }

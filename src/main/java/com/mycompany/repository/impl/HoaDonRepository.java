@@ -35,7 +35,7 @@ public class HoaDonRepository implements ICommonRepository<HoaDon, Boolean, Stri
 
     @Override
     public HoaDon getOne(String ma) {
-        String hql = fromTable + "WHERE trangThai = 0 AND maHoaDon = :ma";
+        String hql = fromTable + "WHERE maHoaDon = :ma";
         Query query = session.createQuery(hql);
         query.setParameter("ma", ma);
         HoaDon hd = (HoaDon) query.getSingleResult();
@@ -60,7 +60,7 @@ public class HoaDonRepository implements ICommonRepository<HoaDon, Boolean, Stri
     @Override
     public Boolean update(HoaDon kh, String ma) {
         String hql = "UPDATE " + fromTable + "SET nhanVien = :nhanVien, khachHang = :khachHang,ban = :ban, ngayTao = :ngayTao, ngayThanhToan = :ngayThanhToan, "
-                + "tongTien = :tongTien, ghiChu = :ghiTru "
+                + "tongTien = :tongTien, ghiChu = :ghiTru, trangThai = :trangThai "
                 + "WHERE maHoaDon = :maHoaDon";
         Transaction transaction = null;
         int check = 0;
@@ -74,6 +74,7 @@ public class HoaDonRepository implements ICommonRepository<HoaDon, Boolean, Stri
             query.setParameter("ngayThanhToan", kh.getNgayThanhToan());
             query.setParameter("tongTien", kh.getTongTien());
             query.setParameter("ghiTru", kh.getGhiChu());
+            query.setParameter("trangThai", kh.getTrangThai());
             query.setParameter("ban", kh.getBan());
             query.setParameter("maHoaDon", ma);
             check = query.executeUpdate();

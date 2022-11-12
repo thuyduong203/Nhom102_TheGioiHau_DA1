@@ -48,7 +48,7 @@ public class MonAnService implements com.mycompany.service.ICommonService<MonAn,
     public static void main(String[] args) {
         List<MonAn> monAn = new MonAnService().getAll();
         for (MonAn monAn1 : monAn) {
-            System.out.println(monAn1);
+            System.out.println(monAn1.getMaMonAn()+" "+monAn1.getTenMonAn()+" "+monAn1.getLoai().getTenDanhMuc());
         }
     }
 

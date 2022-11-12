@@ -6,8 +6,10 @@ package com.mycompany.domainModel;
 
 import java.math.BigDecimal;
 import java.sql.Date;
+//import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -42,7 +44,7 @@ public class HoaDon {
     @JoinColumn(name = "IdNV", nullable = false)
     private NhanVien nhanVien;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "IdKH", nullable = true)
     private KhachHang khachHang;
 
@@ -51,7 +53,7 @@ public class HoaDon {
     private Ban ban;
 
     @Column(name = "NgayTao", nullable = false)
-    private Date ngayTao;
+    private String ngayTao;
 
     @Column(name = "NgayThanhToan")
     private Date ngayThanhToan;

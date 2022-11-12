@@ -4,15 +4,14 @@
  */
 package com.mycompany.repository;
 
-import com.mycompany.customModel.KhachHangResponse;
 import java.util.List;
 
 /**
  *
  * @author Admin
  */
-public interface IKhachHangResponse {
+public interface ICommonResponseRepository<O> {
 
-    List<KhachHangResponse> getAll(int trangThai);
+    List<O> getAll();
     
 }

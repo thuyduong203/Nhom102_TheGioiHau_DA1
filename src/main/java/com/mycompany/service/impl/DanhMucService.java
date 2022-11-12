@@ -57,13 +57,13 @@ public class DanhMucService implements ICommonService<DanhMuc, String> {
     public static void main(String[] args) {
 //        DanhMuc loai = new DanhMuc();
 //        loai.setIdDanhMuc("AA5EF128-4354-4917-9C5D-9E19B52F1C3F");
-//        DanhMuc dm = new DanhMuc(null, loai, "DM03", "Nước uống có ga", 0);
+//        DanhMuc dm = new DanhMuc(null, loai, "DM04", "Nước uống có ga", 0);
 //        String test = new DanhMucService().add(dm);
 //        System.out.println(test);
         List<DanhMuc> danhMucs = new DanhMucService().getAll();
         for (DanhMuc danhMuc : danhMucs) {
-            System.out.println(danhMuc.getMaDanhMuc()+" "+danhMuc.getTenDanhMuc()+" "+danhMuc.getLoai().getIdDanhMuc());
-        }
+            System.out.println(danhMuc.getIdDanhMuc()+" "+danhMuc.getLoai().getIdDanhMuc()+" "+danhMuc.getTenDanhMuc());
+    }
     }
 
 }
