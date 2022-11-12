@@ -4,14 +4,16 @@
  */
 package com.mycompany.domainModel;
 
-import java.math.BigDecimal;
-import java.sql.Date;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,31 +22,29 @@ import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.annotations.GenericGenerator;
 
-/**
- *
- * @author Admin
- */
+@Table(name = "Danh_Muc")
 @Entity
-@Table(name = "Khuyen_Mai_Chi_Tiet")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @ToString
-public class KhuyenMaiChiTiet {
+public class DanhMuc {
 
     @Id
     @GenericGenerator(name = "generator", strategy = "guid", parameters = {})
     @GeneratedValue(generator = "generator")
-    @Column(name = "IdCTKM", columnDefinition = "uniqueidentifier", nullable = false)
-    private String id;
+    @Column(name = "IdDanhMuc", columnDefinition = "uniqueidentifier", nullable = false)
+    private String idDanhMuc;
 
-    @ManyToOne
-    @JoinColumn(name = "IdMonAn", nullable = false)
-    private MonAn monAn;
+    @OneToMany(mappedBy = "IdDanhMuc", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<DanhMuc> lstLoai;
+    private String maDanhMuc;
 
-    @ManyToOne
-    @JoinColumn(name = "IdKM", nullable = false)
-    private KhuyenMai khuyenMai;
+    @Column(name = "TenDanhMuc", nullable = false)
+    private String tenDanhMuc;
+
+    @Column(name = "TrangThai")
+    private Integer trangThai;
 
 }

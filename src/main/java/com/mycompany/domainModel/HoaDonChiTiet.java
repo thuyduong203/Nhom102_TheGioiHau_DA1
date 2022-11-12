@@ -35,10 +35,6 @@ public class HoaDonChiTiet {
     private String id;
 
     @ManyToOne
-    @JoinColumn(name = "IdBan", nullable = false)
-    private Ban ban;
-
-    @ManyToOne
     @JoinColumn(name = "IdMonAn")
     private MonAn monAn;
 
@@ -50,14 +46,20 @@ public class HoaDonChiTiet {
     @JoinColumn(name = "IdComBo")
     private ComBo comBo;
 
-    @Column(name = "SoLuong", nullable = false)
-    private Integer soLuong;
+    @Column(name = "SoLuongMonAn", nullable = false)
+    private Integer soLuongMonAn;
 
-    @Column(name = "DonGia", nullable = false)
-    private BigDecimal donGia;
+    @Column(name = "DonGiaMonAn", nullable = false)
+    private BigDecimal donGiaMonAn;
+    
+    @Column(name = "SoLuongCombo", nullable = false)
+    private Integer soLuongCombo;
 
-    public Object[] toDataRow() {
-        return new Object[]{monAn.getId(), hoaDon.getId(), ban.getId(), comBo==null?"Null":comBo.getId(), soLuong, donGia};
-    }
+    @Column(name = "DonGiaCombo", nullable = false)
+    private BigDecimal donGiaCombo;
+    
+//    public Object[] toDataRow() {
+//        return new Object[]{monAn.getId(), hoaDon.getId(), ban.getId(), comBo==null?"Null":comBo.getId(), soLuong, donGia};
+//    }
 
 }

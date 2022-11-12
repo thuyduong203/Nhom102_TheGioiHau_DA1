@@ -11,6 +11,8 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -34,6 +36,10 @@ public class MonAn {
     @GeneratedValue(generator = "generator")
     @Column(name = "IdMonAn", columnDefinition = "uniqueidentifier", nullable = false)
     private String id;
+
+    @ManyToOne
+    @JoinColumn(name = "IdDanhMuc", nullable = false)
+    private DanhMuc loai;
 
     @Column(name = "MaMonAn", nullable = false)
     private String maMonAn;

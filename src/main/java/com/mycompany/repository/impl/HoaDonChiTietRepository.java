@@ -65,10 +65,10 @@ public class HoaDonChiTietRepository implements IHoaDonChiTiet<HoaDonChiTiet, Bo
             transaction = session.beginTransaction();
             Query query = session.createQuery(hql);
             query.setParameter("monAn", kh.getMonAn());
-            query.setParameter("ban", kh.getBan());
-            query.setParameter("comBo", kh.getComBo());
-            query.setParameter("soLuong", kh.getSoLuong());
-            query.setParameter("donGia", kh.getDonGia());
+//            query.setParameter("ban", kh.getBan());
+//            query.setParameter("comBo", kh.getComBo());
+//            query.setParameter("soLuong", kh.getSoLuong());
+//            query.setParameter("donGia", kh.getDonGia());
             query.setParameter("hoaDon", hd);
             check = query.executeUpdate();
         } catch (Exception e) {
@@ -103,9 +103,9 @@ public class HoaDonChiTietRepository implements IHoaDonChiTiet<HoaDonChiTiet, Bo
         hd.setId("ED4B2826-6CD7-4D7B-B6D5-3961C5DCD85D");
         ComBo comBo = new ComBo();
         comBo.setId(null);
-        HoaDonChiTiet hdct = new HoaDonChiTiet(null, ban, monAn, null, null, 10, BigDecimal.ONE);
-        boolean test = new HoaDonChiTietRepository().update(hdct,hd);
-        System.out.println(test);
+//        HoaDonChiTiet hdct = new HoaDonChiTiet(null, ban, monAn, null, null, 10, BigDecimal.ONE);
+//        boolean test = new HoaDonChiTietRepository().update(hdct,hd);
+//        System.out.println(test);
 //        List<HoaDonChiTiet> getAll = new HoaDonChiTietRepository().getAll();
 //        for (HoaDonChiTiet hoaDonChiTiet : getAll) {
 //            System.out.println(hoaDonChiTiet.toString());
