@@ -33,7 +33,7 @@ public class ComBoRepository implements ICommonRepository<ComBo, Boolean, String
 
     @Override
     public ComBo getOne(String ma) {
-        String hql = fromTable + "WHERE maCB = :ma and trangThai = 0";
+        String hql = fromTable + "WHERE maCB = :ma";
         Query query = session.createQuery(hql);
         query.setParameter("ma", ma);
         ComBo cb = (ComBo) query.getSingleResult();
@@ -98,7 +98,7 @@ public class ComBoRepository implements ICommonRepository<ComBo, Boolean, String
         NhanVien nv = new NhanVien();
         nv.setId("E26EFCD1-8F31-446A-B791-5A11F3ED0C2A");
         ComBo cb = new ComBo(null, nv, null, "bbbb", "aa", BigDecimal.valueOf(200), 0);
-        boolean test = new ComBoRepository().update(cb,"CB001");
+        ComBo test = new ComBoRepository().getOne("CB01");
         System.out.println(test);
     }
 }

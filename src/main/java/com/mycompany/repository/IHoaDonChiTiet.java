@@ -14,11 +14,13 @@ import java.util.List;
 //B = boolean
 //S = String
 //O2 = Object2
-public interface IHoaDonChiTiet<O,B,S,O2> {
-    
+public interface IHoaDonChiTiet<O, B, S, O2, O3, O4> {
+
     List<O> getAll();
 
-    O getOne(S ma);
+    O getOneCombo(O2 hd, O3 combo);
+
+    O getOneMonAn(O2 hd, O4 monAn);
 
     B add(O kh);
 

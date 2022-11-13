@@ -21,7 +21,7 @@ import org.hibernate.Transaction;
  *
  * @author Admin
  */
-public class HoaDonChiTietRepository implements IHoaDonChiTiet<HoaDonChiTiet, Boolean, String, HoaDon> {
+public class HoaDonChiTietRepository implements IHoaDonChiTiet<HoaDonChiTiet, Boolean, String, HoaDon,ComBo,MonAn> {
 
     private static final Session session = HibernateUtil.getFactory().openSession();
     private String fromTable = "FROM HoaDonChiTiet ";
@@ -31,14 +31,6 @@ public class HoaDonChiTietRepository implements IHoaDonChiTiet<HoaDonChiTiet, Bo
         Query query = session.createQuery(fromTable);
         List<HoaDonChiTiet> hoaDonChiTiets = query.getResultList();
         return hoaDonChiTiets;
-    }
-
-    @Override
-    public HoaDonChiTiet getOne(String ma) {
-        String hql = fromTable + "WHERE ma = :ma";
-        Query query = session.createQuery(hql);
-        HoaDonChiTiet kh = (HoaDonChiTiet) query.getSingleResult();
-        return kh;
     }
 
     @Override
@@ -95,21 +87,35 @@ public class HoaDonChiTietRepository implements IHoaDonChiTiet<HoaDonChiTiet, Bo
     }
 
     public static void main(String[] args) {
-        Ban ban = new Ban();
-        ban.setId("E2379CDD-2827-4CB6-9A34-2C2103268F70");
-        MonAn monAn = new MonAn();
-        monAn.setId("F140701F-1D94-49E6-97EC-46CDAB6D9EC6");
-        HoaDon hd = new HoaDon();
-        hd.setId("ED4B2826-6CD7-4D7B-B6D5-3961C5DCD85D");
-        ComBo comBo = new ComBo();
-        comBo.setId(null);
+//        Ban ban = new Ban();
+//        ban.setId("E2379CDD-2827-4CB6-9A34-2C2103268F70");
+//        MonAn monAn = new MonAn();
+//        monAn.setId("F140701F-1D94-49E6-97EC-46CDAB6D9EC6");
+//        HoaDon hd = new HoaDon();
+//        hd.setId("ED4B2826-6CD7-4D7B-B6D5-3961C5DCD85D");
+//        ComBo comBo = new ComBo();
+//        comBo.setId(null);
 //        HoaDonChiTiet hdct = new HoaDonChiTiet(null, ban, monAn, null, null, 10, BigDecimal.ONE);
 //        boolean test = new HoaDonChiTietRepository().update(hdct,hd);
 //        System.out.println(test);
-//        List<HoaDonChiTiet> getAll = new HoaDonChiTietRepository().getAll();
-//        for (HoaDonChiTiet hoaDonChiTiet : getAll) {
-//            System.out.println(hoaDonChiTiet.toString());
-//        }
+        List<HoaDonChiTiet> getAll = new HoaDonChiTietRepository().getAll();
+        for (HoaDonChiTiet hoaDonChiTiet : getAll) {
+            System.out.println(hoaDonChiTiet.toString());
+        }
+    }
+
+    @Override
+    public HoaDonChiTiet getOneCombo(HoaDon hd, ComBo combo) {
+String hql = fromTable + "WHERE hoaDon = :hd AND comBo = :comBo";
+        Query query = session.createQuery(hql);
+        query.setParameter("hd", hd);
+        query.setParameter("hd", hd);
+        HoaDonChiTiet kh = (HoaDonChiTiet) query.getSingleResult();
+        return kh;    }
+
+    @Override
+    public HoaDonChiTiet getOneMonAn(HoaDon hd, MonAn monAn) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

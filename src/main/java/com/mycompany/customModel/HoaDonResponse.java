@@ -29,7 +29,7 @@ public class HoaDonResponse {
     private Integer trangThai;
 
     private String ghiChu;
-
+    
     public Object[] toDataRow(int stt) {
         return new Object[]{stt, maHoaDon, maKhachHang!=null?maKhachHang:"", ngayTao, maBan, checkTrangThai(trangThai), ghiChu};
     }

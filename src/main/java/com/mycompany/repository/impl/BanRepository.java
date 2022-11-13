@@ -56,7 +56,7 @@ public class BanRepository implements ICommonRepository<Ban, Boolean, String> {
 
     @Override
     public Boolean update(Ban kh, String ma) {
-        String hql = "UPDATE " + fromTable + "SET soLuongChoNgoi = :soLuongChoNgoi,kv = :kv "
+        String hql = "UPDATE " + fromTable + "SET soLuongChoNgoi = :soLuongChoNgoi,kv = :kv ,trangThai = :trangThai "
                 + "WHERE maBan = :ma";
         Transaction transaction = null;
         int check = 0;
@@ -66,6 +66,7 @@ public class BanRepository implements ICommonRepository<Ban, Boolean, String> {
             Query query = session.createQuery(hql);
             query.setParameter("soLuongChoNgoi", kh.getSoLuongChoNgoi());
             query.setParameter("kv", kh.getKv());
+            query.setParameter("trangThai", kh.getTrangThai());
             query.setParameter("ma", Integer.valueOf(ma));
             check = query.executeUpdate();
             transaction.commit();
@@ -95,8 +96,13 @@ public class BanRepository implements ICommonRepository<Ban, Boolean, String> {
         return check > 0;
     }
     public static void main(String[] args) {
+        KhuVuc kv = new KhuVuc();
+        kv.setIdKV("8E04689D-D3BD-42D9-82F6-71C99A4AF932");
         Ban ban = new BanRepository().getOne("1");
-        System.out.println(ban);
+        ban.setTrangThai(0);
+//        ban.setKv(kv);
+        Boolean test = new BanRepository().update(ban,ban.getMaBan().toString());
+        System.out.println(test);
     }
 
 }

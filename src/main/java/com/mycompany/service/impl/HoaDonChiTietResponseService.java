@@ -16,7 +16,7 @@ import com.mycompany.repository.IHoaDonChiTietResponseRepository;
  *
  * @author Admin
  */
-public class HoaDonChiTietResponseService implements com.mycompany.service.IHoaDonChiTietResponseService<HoaDonChiTietResponse,HoaDon> {
+public class HoaDonChiTietResponseService implements com.mycompany.service.IHoaDonChiTietResponseService<HoaDonChiTietResponse, HoaDon> {
 
     private final IHoaDonChiTietResponseRepository hdctrr = new HoaDonChiTietResponseRepository();
 
@@ -25,4 +25,12 @@ public class HoaDonChiTietResponseService implements com.mycompany.service.IHoaD
         return hdctrr.getAll(hoaDon);
     }
 
+    public static void main(String[] args) {
+        HoaDon hd = new HoaDon();
+        hd.setId("7E52228F-F719-4E7D-9BCF-FB1F2DDAB7C4");
+        List<HoaDonChiTietResponse> chiTietResponses = new HoaDonChiTietResponseService().getAll(hd);
+        for (HoaDonChiTietResponse chiTietResponse : chiTietResponses) {
+            System.out.println(chiTietResponse);
+        }
+    }
 }
