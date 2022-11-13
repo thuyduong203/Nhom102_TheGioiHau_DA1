@@ -11,6 +11,7 @@ import com.mycompany.customModel.HoaDonResponse;
 import com.mycompany.customModel.MonAnResponse;
 import com.mycompany.domainModel.Ban;
 import com.mycompany.domainModel.ComBo;
+import com.mycompany.domainModel.GiaoDich;
 import com.mycompany.domainModel.HoaDon;
 import com.mycompany.domainModel.HoaDonChiTiet;
 import com.mycompany.domainModel.MonAn;
@@ -24,6 +25,7 @@ import com.mycompany.service.impl.BanResponseService;
 import com.mycompany.service.impl.BanService;
 import com.mycompany.service.impl.ComBoService;
 import com.mycompany.service.impl.ComboResponseService;
+import com.mycompany.service.impl.GiaoDichService;
 import com.mycompany.service.impl.HoaDonChiTietService;
 import com.mycompany.service.impl.HoaDonResponseService;
 import com.mycompany.service.impl.HoaDonService;
@@ -63,6 +65,7 @@ public class ViewTrangChu extends javax.swing.JFrame {
     private ICommonService hds = new HoaDonService();
     private ICommonService mas = new MonAnService();
     private ICommonService cbs = new ComBoService();
+    private ICommonService gds = new GiaoDichService();
     private ICommonService nvs = new NhanVienService();
     private ICommonService monAnService = new MonAnService();
     private ICommonService banService = new BanService();
@@ -98,10 +101,30 @@ public class ViewTrangChu extends javax.swing.JFrame {
         btnDoAn.setBackground(Color.GRAY);
         txtChuyenKhoan.setEnabled(false);
         txtTienMat.setEnabled(false);
+        txtChuyenKhoan.setText("0");
+        txtTienMat.setText("0");
+//        tinhTienThua();
+    }
+
+//    private void tinhTienThua() {
+//        Double tienMat = Double.valueOf(txtTienMat.getText());
+//        Double tienChuyenKhoan = Double.valueOf(txtChuyenKhoan.getText());
+//        Double tongTien = Double.valueOf(txtTongTien.getText());
+//        Double tienThua = tongTien - (tienMat + tienChuyenKhoan);
+//        txtTienThua.setText(tienThua.toString());
+//    }
+    private void fillTongTien() {
+        Double tongTien = Double.valueOf(0);
+        for (HoaDonChiTietResponse lstHDCTResponse : lstHDCTResponses) {
+            String giaCB = lstHDCTResponse.getDonGiaCombo().toString();
+            String giaMA = lstHDCTResponse.getDonGiaMonAn().toString();
+            tongTien += (Double.valueOf(giaCB) * 1) + (Double.valueOf(giaMA) * 1);
+        }
+        txtTongTien.setText(tongTien.toString());
     }
 
     private void loadTableCombo() {
-        String header[] = {"Mã Combo", "Tên Combo", "Đơn giá"};
+        String header[] = {"STT", "Mã Combo", "Tên Combo", "Đơn giá"};
         tbMonAn.setModel(dtmCombo);
         dtmCombo.setColumnIdentifiers(header);
     }
@@ -952,8 +975,10 @@ public class ViewTrangChu extends javax.swing.JFrame {
         if (checkBtnMonAn == 1) {
             if (checkTrangThaiHD == 1) {
                 JOptionPane.showMessageDialog(this, "Không thể thêm sản phẩm");
+                return;
             } else if (checkMonAn == 1) {
                 JOptionPane.showMessageDialog(this, "Vui lòng chọn hoá đơn");
+                return;
             } else {
                 int index = tbMonAn.getSelectedRow();
                 MonAnResponse mar = lstMonAnResponses.get(index);
@@ -963,48 +988,28 @@ public class ViewTrangChu extends javax.swing.JFrame {
                 String addHDCT = (String) hdctService.add(hdct);
                 lstHDCTResponses = hdctResponseService.getAll(hd);
                 showDataHDCT(lstHDCTResponses);
-               
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-//                HoaDonChiTietResponse hdctr = new HoaDonChiTietResponse();
-//                hdctr.setMaMonAn(ma.getMaMonAn());
-//                hdctr.setTenMonAn(ma.getTenMonAn());
-////            hdctr.setSoLuongMonAn(1);
-//                hdctr.setDonGiaMonAn(ma.getDonGia());
-//                lstHDCTResponses.add(hdctr);
-//                showDataHDCT(lstHDCTResponses);
+                fillTongTien();
+                return;
             }
         }
         if (checkBtnMonAn == 2) {
             //thêm sản phẩm nước uống vào hdct
         } else {
-//            if (checkTrangThaiHD == 1) {
-//                JOptionPane.showMessageDialog(this, "Không thể thêm sản phẩm");
-//            } else if (checkMonAn == 1) {
-//                JOptionPane.showMessageDialog(this, "Vui lòng chọn hoá đơn");
-//            } else {
-//                int index = tbMonAn.getSelectedRow();
-//                ComboResponse cbr = lstComboResponses.get(index);
-//                ComBo cb = (ComBo) cbs.getOne(cbr.getMaCB());
-//                HoaDonChiTietResponse hdctr = new HoaDonChiTietResponse();
-//                hdctr.setMaMonAn(ma.getMaMonAn());
-//                hdctr.setTenMonAn(ma.getTenMonAn());
-////            hdctr.setSoLuongMonAn(1);
-//                hdctr.setDonGiaMonAn(ma.getDonGia());
-//                lstHDCTResponses.add(hdctr);
-//                showDataHDCT(lstHDCTResponses);
-//            }
+            if (checkTrangThaiHD == 1) {
+                JOptionPane.showMessageDialog(this, "Không thể thêm sản phẩm");
+            } else if (checkMonAn == 1) {
+                JOptionPane.showMessageDialog(this, "Vui lòng chọn hoá đơn");
+            } else {
+                int index = tbMonAn.getSelectedRow();
+                ComboResponse cbr = lstComboResponses.get(index);
+                ComBo cb = (ComBo) cbs.getOne(cbr.getMaCB());
+                HoaDon hd = (HoaDon) hds.getOne(lbMaHD.getText());
+                HoaDonChiTiet hdct = new HoaDonChiTiet(null, null, hd, cb, 0, BigDecimal.valueOf(0), 1, cb.getDonGia());
+                String addHDCT = (String) hdctService.add(hdct);
+                lstHDCTResponses = hdctResponseService.getAll(hd);
+                showDataHDCT(lstHDCTResponses);
+                fillTongTien();
+            }
         }
     }//GEN-LAST:event_tbMonAnMouseClicked
 
@@ -1014,6 +1019,7 @@ public class ViewTrangChu extends javax.swing.JFrame {
         HoaDonResponse hdr = lstHoaDonResponses.get(index);
         lbMaHD.setText(hdr.getMaHoaDon());
         HoaDon hd = (HoaDon) hds.getOne(lbMaHD.getText());
+        lbSoBan.setText(hd.getBan().getMaBan().toString());
         if (hd.getTrangThai() == 0) {
             checkTrangThaiHD = 0;
             checkMonAn = 0;
@@ -1024,9 +1030,7 @@ public class ViewTrangChu extends javax.swing.JFrame {
         }
         lstHDCTResponses = hdctResponseService.getAll(hd);
         showDataHDCT(lstHDCTResponses);
-        for (HoaDonChiTietResponse lstHDCTResponse : lstHDCTResponses) {
-            System.out.println(lstHDCTResponse.toString());
-        }
+        fillTongTien();
     }//GEN-LAST:event_tbHoaDonMouseClicked
 
     private void tbBanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbBanMouseClicked
@@ -1040,33 +1044,45 @@ public class ViewTrangChu extends javax.swing.JFrame {
     private void btnThanhToanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThanhToanActionPerformed
         // TODO add your handling code here:
 
-        for (MonAnResponse lstMonAnResponse : lstMonAnResponses) {
-            MonAn ma = (MonAn) monAnService.getOne(lstMonAnResponse.getMaMonAn());
+        if ("".equals(lbMaHDThanhToan.getText())) {
+            JOptionPane.showMessageDialog(this, "Vui lòng chọn hoá đơn chưa thanh toán");
+        } else if (Double.valueOf(txtTongTien.getText()) > (Double.valueOf(txtTienMat.getText()) + Double.valueOf(txtChuyenKhoan.getText()))) {
+            JOptionPane.showMessageDialog(this, "Chưa đủ tiền");
+        } else {
+            String hinhThucThanhToan = "";
+            Double tongTien = Double.valueOf(txtTongTien.getText());
+            String ngayThanhToan = new HoaDonUtil().layNgay();
+            Ban ban = (Ban) banService.getOne(lbSoBan.getText());
+            ban.setTrangThai(0);
+            NhanVien nv = (NhanVien) nvs.getOne("NV02");
             HoaDon hd = (HoaDon) hds.getOne(lbMaHDThanhToan.getText());
-            HoaDonChiTiet hdct = new HoaDonChiTiet(null, ma, hd, null, 1, lstMonAnResponse.getDonGia(), 1, BigDecimal.valueOf(Double.valueOf(200)));
-            String add = (String) hdctService.add(hdct);
+            hd.setTrangThai(1);
+            hd.setBan(ban);
+            hd.setNhanVien(nv);
+            hd.setTongTien(BigDecimal.valueOf(tongTien));
+            hd.setNgayThanhToan(Date.valueOf(ngayThanhToan));
+            if (cbTienMat.isSelected()) {
+                hinhThucThanhToan = "Tiền mặt";
+            } else {
+                hinhThucThanhToan = "Chuyển khoản";
+            }
+            GiaoDich gd = new GiaoDich(null, hd, hinhThucThanhToan, BigDecimal.valueOf(Double.valueOf(txtTienMat.getText())));
+            String addGD = (String) gds.add(gd);
+            String addHD = (String) hds.update(hd, lbMaHDThanhToan.getText());
+            String setTrangThaiBan = (String) banService.update(ban, ban.getMaBan().toString());
+            JOptionPane.showMessageDialog(this, "Thanh toán thành công");
+            lstHoaDonResponses = hoaDonResponseService.getAll();
+            lstBanResponses = banResponseService.getAll();
+            showDataHoaDon(lstHoaDonResponses);
+            showDataBan(lstBanResponses);
         }
-        String ngayThanhToan = new HoaDonUtil().layNgay();
-        Ban ban = (Ban) banService.getOne(lbSoBan.getText());
-        ban.setTrangThai(0);
-        NhanVien nv = (NhanVien) nvs.getOne("NV02");
-        HoaDon hd = (HoaDon) hds.getOne(lbMaHDThanhToan.getText());
-        hd.setTrangThai(1);
-        hd.setBan(ban);
-        hd.setNhanVien(nv);
-        hd.setNgayThanhToan(Date.valueOf(ngayThanhToan));
-        String addHD = (String) hds.update(hd, lbMaHDThanhToan.getText());
-        String setTrangThaiBan = (String) banService.update(ban, ban.getMaBan().toString());
-        JOptionPane.showMessageDialog(this, "Thanh toán thành công");
-        lstHoaDonResponses = hoaDonResponseService.getAll();
-        lstBanResponses = banResponseService.getAll();
-        showDataHoaDon(lstHoaDonResponses);
-        showDataBan(lstBanResponses);
     }//GEN-LAST:event_btnThanhToanActionPerformed
 
     private void btnTaoHDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaoHDActionPerformed
         // TODO add your handling code here:
-        if (checkTaoHD == 0) {
+        if ("".equals(lbSoBan.getText())) {
+            JOptionPane.showMessageDialog(this, "Chọn bàn trước");
+        } else {
             String maHD = new HoaDonUtil().zenMa();
             String ngayTao = new HoaDonUtil().layNgay();
             String ngayThanhToan = new HoaDonUtil().layNgay();
@@ -1080,8 +1096,6 @@ public class ViewTrangChu extends javax.swing.JFrame {
             lstBanResponses = banResponseService.getAll();
             showDataHoaDon(lstHoaDonResponses);
             showDataBan(lstBanResponses);
-        } else {
-            JOptionPane.showMessageDialog(this, "Chọn bàn trước");
         }
     }//GEN-LAST:event_btnTaoHDActionPerformed
 
@@ -1109,6 +1123,7 @@ public class ViewTrangChu extends javax.swing.JFrame {
         if (cbTienMat.isSelected()) {
             txtTienMat.setEnabled(true);
         } else {
+            txtTienMat.setText("0");
             txtTienMat.setEnabled(false);
         }
     }//GEN-LAST:event_cbTienMatActionPerformed
@@ -1118,6 +1133,7 @@ public class ViewTrangChu extends javax.swing.JFrame {
         if (cbChuyenKhoan.isSelected()) {
             txtChuyenKhoan.setEnabled(true);
         } else {
+            txtChuyenKhoan.setText("0");
             txtChuyenKhoan.setEnabled(false);
         }
     }//GEN-LAST:event_cbChuyenKhoanActionPerformed
