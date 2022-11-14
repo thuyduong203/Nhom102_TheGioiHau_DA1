@@ -5,6 +5,7 @@
 package com.mycompany.repository;
 
 import com.mycompany.domainModel.NhanVien;
+import java.util.List;
 
 /**
  *
@@ -12,5 +13,5 @@ import com.mycompany.domainModel.NhanVien;
  */
 public interface INhanVienRepository {
 
-    NhanVien getUserAndPass(String user, String pass);
+    List<NhanVien> getUserAndPass(String user, String pass);
 }
