@@ -103,8 +103,8 @@ public class ViewTrangChu extends javax.swing.JFrame {
         txtTienMat.setEnabled(false);
         txtChuyenKhoan.setText("0");
         txtTienMat.setText("0");
-        txtTongTien.setText("0");
-        txtTienThua.setText("0");
+//        txtTongTien.setText("0");
+//        txtTienThua.setText("0");
 //        fillTienThua();
     }
 
@@ -1053,9 +1053,10 @@ public class ViewTrangChu extends javax.swing.JFrame {
 
     private void btnThanhToanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThanhToanActionPerformed
         // TODO add your handling code here:
-
         if ("".equals(lbMaHDThanhToan.getText())) {
             JOptionPane.showMessageDialog(this, "Vui lòng chọn hoá đơn chưa thanh toán");
+        } else if (cbChuyenKhoan.isSelected() == false && cbTienMat.isSelected() == false) {
+            JOptionPane.showMessageDialog(this, "Vui lòng chọn hình thức thanh toán");
         } else if (Double.valueOf(txtTongTien.getText()) > (Double.valueOf(txtTienMat.getText()) + Double.valueOf(txtChuyenKhoan.getText()))) {
             JOptionPane.showMessageDialog(this, "Chưa đủ tiền");
         } else {
@@ -1071,20 +1072,44 @@ public class ViewTrangChu extends javax.swing.JFrame {
             hd.setNhanVien(nv);
             hd.setTongTien(BigDecimal.valueOf(tongTien));
             hd.setNgayThanhToan(Date.valueOf(ngayThanhToan));
-            if (cbTienMat.isSelected()) {
-                hinhThucThanhToan = "Tiền mặt";
-            } else {
+            if (cbTienMat.isSelected() && cbChuyenKhoan.isSelected()) {
+                GiaoDich gd = new GiaoDich(null, hd, "Tiền mặt", BigDecimal.valueOf(Double.valueOf(txtTienMat.getText())));
+                String addGD = (String) gds.add(gd);
+                GiaoDich gd1 = new GiaoDich(null, hd, "Chuyển khoản", BigDecimal.valueOf(Double.valueOf(txtChuyenKhoan.getText())));
+                String addGD1 = (String) gds.add(gd1);
+                String addHD = (String) hds.update(hd, lbMaHDThanhToan.getText());
+                String setTrangThaiBan = (String) banService.update(ban, ban.getMaBan().toString());
+                JOptionPane.showMessageDialog(this, "Thanh toán thành công");
+                lstHoaDonResponses = hoaDonResponseService.getAll();
+                lstBanResponses = banResponseService.getAll();
+                showDataHoaDon(lstHoaDonResponses);
+                showDataBan(lstBanResponses);
+                return;
+            } else if (cbChuyenKhoan.isSelected()) {
                 hinhThucThanhToan = "Chuyển khoản";
+                GiaoDich gd = new GiaoDich(null, hd, hinhThucThanhToan, BigDecimal.valueOf(Double.valueOf(txtChuyenKhoan.getText())));
+                String addGD = (String) gds.add(gd);
+                String addHD = (String) hds.update(hd, lbMaHDThanhToan.getText());
+                String setTrangThaiBan = (String) banService.update(ban, ban.getMaBan().toString());
+                JOptionPane.showMessageDialog(this, "Thanh toán thành công");
+                lstHoaDonResponses = hoaDonResponseService.getAll();
+                lstBanResponses = banResponseService.getAll();
+                showDataHoaDon(lstHoaDonResponses);
+                showDataBan(lstBanResponses);
+                return;
+            } else {
+                hinhThucThanhToan = "Tiền mặt";
+                GiaoDich gd = new GiaoDich(null, hd, hinhThucThanhToan, BigDecimal.valueOf(Double.valueOf(txtTienMat.getText())));
+                String addGD = (String) gds.add(gd);
+                String addHD = (String) hds.update(hd, lbMaHDThanhToan.getText());
+                String setTrangThaiBan = (String) banService.update(ban, ban.getMaBan().toString());
+                JOptionPane.showMessageDialog(this, "Thanh toán thành công");
+                lstHoaDonResponses = hoaDonResponseService.getAll();
+                lstBanResponses = banResponseService.getAll();
+                showDataHoaDon(lstHoaDonResponses);
+                showDataBan(lstBanResponses);
             }
-            GiaoDich gd = new GiaoDich(null, hd, hinhThucThanhToan, BigDecimal.valueOf(Double.valueOf(txtTienMat.getText())));
-            String addGD = (String) gds.add(gd);
-            String addHD = (String) hds.update(hd, lbMaHDThanhToan.getText());
-            String setTrangThaiBan = (String) banService.update(ban, ban.getMaBan().toString());
-            JOptionPane.showMessageDialog(this, "Thanh toán thành công");
-            lstHoaDonResponses = hoaDonResponseService.getAll();
-            lstBanResponses = banResponseService.getAll();
-            showDataHoaDon(lstHoaDonResponses);
-            showDataBan(lstBanResponses);
+
         }
     }//GEN-LAST:event_btnThanhToanActionPerformed
 
@@ -1165,7 +1190,7 @@ public class ViewTrangChu extends javax.swing.JFrame {
 
     private void txtTienMatInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_txtTienMatInputMethodTextChanged
         // TODO add your handling code here:
-        fillTienThua();
+//        fillTienThua();
     }//GEN-LAST:event_txtTienMatInputMethodTextChanged
 
     /**

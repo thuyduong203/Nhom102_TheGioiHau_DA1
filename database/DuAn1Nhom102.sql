@@ -199,6 +199,11 @@ select * from Mon_An
 select * from Chi_Tiet_Combo
 insert Khach_Hang(MaKH) values('KH02')
 insert into Danh_Muc(IdLoai,MaDanhMuc,TenDanhMuc) values('AA5EF128-4354-4917-9C5D-9E19B52F1C3F','DM03',N'Nước uống có ga')
+select * from Giao_Dich
 select * from Hoa_Don
-select * from Khach_Hang
+select * from Hoa_Don_Chi_Tiet
+
+delete from Hoa_Don_Chi_Tiet where IdMonAn is null
+delete from Hoa_Don where IdKH is null
+delete from Giao_Dich
 
