@@ -103,16 +103,18 @@ public class ViewTrangChu extends javax.swing.JFrame {
         txtTienMat.setEnabled(false);
         txtChuyenKhoan.setText("0");
         txtTienMat.setText("0");
-//        tinhTienThua();
+        txtTongTien.setText("0");
+        txtTienThua.setText("0");
+//        fillTienThua();
     }
 
-//    private void tinhTienThua() {
-//        Double tienMat = Double.valueOf(txtTienMat.getText());
-//        Double tienChuyenKhoan = Double.valueOf(txtChuyenKhoan.getText());
-//        Double tongTien = Double.valueOf(txtTongTien.getText());
-//        Double tienThua = tongTien - (tienMat + tienChuyenKhoan);
-//        txtTienThua.setText(tienThua.toString());
-//    }
+    private void fillTienThua() {
+        Double tienThua = 0.0;
+        Double tongTienTatCa = Double.valueOf(txtTienMat.getText()) + Double.valueOf(txtChuyenKhoan.getText());
+        tienThua = tongTienTatCa - Double.valueOf(txtTongTien.getText());
+        txtTienThua.setText(tienThua.toString());
+    }
+
     private void fillTongTien() {
         Double tongTien = Double.valueOf(0);
         for (HoaDonChiTietResponse lstHDCTResponse : lstHDCTResponses) {
@@ -262,6 +264,14 @@ public class ViewTrangChu extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
         jPanel1.setMaximumSize(new java.awt.Dimension(1242, 620));
+
+        txtTienMat.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                txtTienMatInputMethodTextChanged(evt);
+            }
+        });
 
         tbHoaDonCT.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1152,6 +1162,11 @@ public class ViewTrangChu extends javax.swing.JFrame {
     private void tbBan1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbBan1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_tbBan1MouseClicked
+
+    private void txtTienMatInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_txtTienMatInputMethodTextChanged
+        // TODO add your handling code here:
+        fillTienThua();
+    }//GEN-LAST:event_txtTienMatInputMethodTextChanged
 
     /**
      * @param args the command line arguments
