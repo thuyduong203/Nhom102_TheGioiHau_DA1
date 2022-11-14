@@ -4,18 +4,22 @@
  */
 package com.mycompany.view;
 
+import com.mycompany.domainModel.NhanVien;
+
 /**
  *
  * @author Admin
  */
 public class ViewSanPham extends javax.swing.JFrame {
 
+    private NhanVien nhanV;
 
     /**
      * Creates new form View
      */
-    public ViewSanPham() {
+    public ViewSanPham(NhanVien nhanVien) {
         initComponents();
+        nhanV = nhanVien;
     }
 
     /**
@@ -154,6 +158,11 @@ public class ViewSanPham extends javax.swing.JFrame {
         btnBan.setBackground(new java.awt.Color(204, 204, 204));
         btnBan.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnBan.setText("BÀN");
+        btnBan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBanActionPerformed(evt);
+            }
+        });
 
         btnKhuyenMai.setBackground(new java.awt.Color(204, 204, 204));
         btnKhuyenMai.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -162,14 +171,29 @@ public class ViewSanPham extends javax.swing.JFrame {
         btnSanPham.setBackground(new java.awt.Color(255, 255, 153));
         btnSanPham.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnSanPham.setText("SẢN PHẨM");
+        btnSanPham.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSanPhamActionPerformed(evt);
+            }
+        });
 
         btnThongKe.setBackground(new java.awt.Color(204, 204, 204));
         btnThongKe.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnThongKe.setText("THỐNG KÊ");
+        btnThongKe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThongKeActionPerformed(evt);
+            }
+        });
 
         jButton1.setBackground(new java.awt.Color(204, 204, 204));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton1.setText("NHÂN VIÊN");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -296,7 +320,7 @@ public class ViewSanPham extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 9, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 617, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -563,9 +587,10 @@ public class ViewSanPham extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 645, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -583,6 +608,34 @@ public class ViewSanPham extends javax.swing.JFrame {
         JDialogDanhMuc viewDanhMuc = new JDialogDanhMuc(this, true);
         viewDanhMuc.setVisible(true);
     }//GEN-LAST:event_btnAddDanhMucActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        ViewNhanVien viewNhanVien = new ViewNhanVien(nhanV);
+        this.dispose();
+        viewNhanVien.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnBanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBanActionPerformed
+        // TODO add your handling code here:
+        ViewBan viewBan = new ViewBan(nhanV);
+        this.dispose();
+        viewBan.setVisible(true);
+    }//GEN-LAST:event_btnBanActionPerformed
+
+    private void btnThongKeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThongKeActionPerformed
+        // TODO add your handling code here:
+        ViewThongKe viewThongKe = new ViewThongKe(nhanV);
+        this.dispose();
+        viewThongKe.setVisible(true);
+    }//GEN-LAST:event_btnThongKeActionPerformed
+
+    private void btnSanPhamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSanPhamActionPerformed
+        // TODO add your handling code here:
+        ViewSanPham viewSanPham = new ViewSanPham(nhanV);
+        this.dispose();
+        viewSanPham.setVisible(true);
+    }//GEN-LAST:event_btnSanPhamActionPerformed
 
     /**
      * @param args the command line arguments
@@ -867,11 +920,11 @@ public class ViewSanPham extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ViewSanPham().setVisible(true);
-            }
-        });
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new ViewSanPham().setVisible(true);
+//            }
+//        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
