@@ -46,7 +46,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Admin
  */
 public class ViewTrangChu extends javax.swing.JFrame {
-
+    
     private DefaultTableModel dtmHoaDon = new DefaultTableModel();
     private DefaultTableModel dtmHoaDonCT = new DefaultTableModel();
     private DefaultTableModel dtmBan = new DefaultTableModel();
@@ -105,18 +105,19 @@ public class ViewTrangChu extends javax.swing.JFrame {
         txtTienMat.setEnabled(false);
         txtChuyenKhoan.setText("0");
         txtTienMat.setText("0");
+        lbNhanVien.setText(nv.getMa());
 //        txtTongTien.setText("0");
 //        txtTienThua.setText("0");
 //        fillTienThua();
     }
-
+    
     private void fillTienThua() {
         Double tienThua = 0.0;
         Double tongTienTatCa = Double.valueOf(txtTienMat.getText()) + Double.valueOf(txtChuyenKhoan.getText());
         tienThua = tongTienTatCa - Double.valueOf(txtTongTien.getText());
         txtTienThua.setText(tienThua.toString());
     }
-
+    
     private void fillTongTien() {
         Double tongTien = Double.valueOf(0);
         for (HoaDonChiTietResponse lstHDCTResponse : lstHDCTResponses) {
@@ -126,19 +127,19 @@ public class ViewTrangChu extends javax.swing.JFrame {
         }
         txtTongTien.setText(tongTien.toString());
     }
-
+    
     private void loadTableCombo() {
         String header[] = {"STT", "Mã Combo", "Tên Combo", "Đơn giá"};
         tbMonAn.setModel(dtmCombo);
         dtmCombo.setColumnIdentifiers(header);
     }
-
+    
     private void loadTableMonAn() {
         String headerMonAn[] = {"STT", "Loại món ăn", "Mã món ăn", "Tên món ăn", "Đơn giá", "Đơn vị tính"};
         tbMonAn.setModel(dtmMonAn);
         dtmMonAn.setColumnIdentifiers(headerMonAn);
     }
-
+    
     private void showDataMonAn(List<MonAnResponse> monAnResponses) {
         dtmMonAn.setRowCount(0);
         int stt = 0;
@@ -147,7 +148,7 @@ public class ViewTrangChu extends javax.swing.JFrame {
             dtmMonAn.addRow(monAnResponse.toDataRow(stt));
         }
     }
-
+    
     private void showDataHDCT(List<HoaDonChiTietResponse> hoaDonChiTietResponses) {
         dtmHoaDonCT.setRowCount(0);
         int stt = 0;
@@ -156,7 +157,7 @@ public class ViewTrangChu extends javax.swing.JFrame {
             dtmHoaDonCT.addRow(hoaDonChiTietResponse.toDataRow(stt));
         }
     }
-
+    
     private void showDataHoaDon(List<HoaDonResponse> hoaDonResponses) {
         dtmHoaDon.setRowCount(0);
         int stt = 0;
@@ -165,7 +166,7 @@ public class ViewTrangChu extends javax.swing.JFrame {
             dtmHoaDon.addRow(hoaDonResponse.toDataRow(stt));
         }
     }
-
+    
     private void showDataBan(List<BanResponse> banResponses) {
         dtmBan.setRowCount(0);
         int stt = 0;
@@ -174,7 +175,7 @@ public class ViewTrangChu extends javax.swing.JFrame {
             dtmBan.addRow(banResponse.toDataRow(stt));
         }
     }
-
+    
     private void loadDataCombo(List<ComboResponse> comboResponses) {
         dtmCombo.setRowCount(0);
         int stt = 0;
@@ -1111,7 +1112,7 @@ public class ViewTrangChu extends javax.swing.JFrame {
                 showDataHoaDon(lstHoaDonResponses);
                 showDataBan(lstBanResponses);
             }
-
+            
         }
     }//GEN-LAST:event_btnThanhToanActionPerformed
 
