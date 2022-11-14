@@ -23,7 +23,7 @@ public class KhuVucRepository implements ICommonRepository<KhuVuc, Boolean, Stri
     public List<KhuVuc> getAll() {
         List<KhuVuc> listKV = new ArrayList<>();
         try ( Session session = HibernateUtil.getFactory().openSession()) {
-            Query query = session.createQuery("FROM KhuVuc");
+            Query query = session.createQuery("FROM KhuVuc WHERE trangThai = 0");
             listKV = query.getResultList();
         } finally {
             return listKV;

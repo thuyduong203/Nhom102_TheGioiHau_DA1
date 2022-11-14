@@ -10,14 +10,16 @@ import com.mycompany.repository.impl.HoaDonChiTietRepository;
 import com.mycompany.service.IHoaDonChiTiet;
 import java.util.List;
 import com.mycompany.service.ICommonService;
+import java.math.BigDecimal;
 
 /**
  *
  * @author Admin
  */
-public class HoaDonChiTietService implements IHoaDonChiTiet<HoaDonChiTiet, String,HoaDon> {
+public class HoaDonChiTietService implements IHoaDonChiTiet<HoaDonChiTiet, String, HoaDon> {
 
     private final com.mycompany.repository.IHoaDonChiTiet hdctr = new HoaDonChiTietRepository();
+    private HoaDonChiTietRepository hdctRep = new HoaDonChiTietRepository();
 
     @Override
     public List<HoaDonChiTiet> getAll() {
@@ -40,7 +42,7 @@ public class HoaDonChiTietService implements IHoaDonChiTiet<HoaDonChiTiet, Strin
 
     @Override
     public String update(HoaDonChiTiet kh, HoaDon ma) {
-        if ((Boolean) hdctr.update(kh,ma)) {
+        if ((Boolean) hdctr.update(kh, ma)) {
             return "Sửa thành công";
         } else {
             return "Sửa thất bại";
@@ -54,6 +56,14 @@ public class HoaDonChiTietService implements IHoaDonChiTiet<HoaDonChiTiet, Strin
         } else {
             return "Xoá thất bại";
         }
+    }
+
+    public BigDecimal tongTienHD(List<HoaDonChiTiet> listHDCT) {
+        return hdctRep.tinhTongTien(listHDCT);
+    }
+
+    public List<HoaDonChiTiet> getHDCTByHD(HoaDon hoaDon) {
+        return hdctRep.getHDCTByHD(hoaDon);
     }
 
 }
