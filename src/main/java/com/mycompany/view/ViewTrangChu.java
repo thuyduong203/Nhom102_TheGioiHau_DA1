@@ -81,7 +81,7 @@ public class ViewTrangChu extends javax.swing.JFrame {
     /**
      * Creates new form View
      */
-    public ViewTrangChu() {
+    public ViewTrangChu(NhanVien nv) {
         initComponents();
         tbHoaDon.setModel(dtmHoaDon);
         tbHoaDonCT.setModel(dtmHoaDonCT);
@@ -1226,11 +1226,11 @@ public class ViewTrangChu extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ViewTrangChu().setVisible(true);
-            }
-        });
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new ViewTrangChu().setVisible(true);
+//            }
+//        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

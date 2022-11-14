@@ -8,6 +8,7 @@ import com.mycompany.domainModel.ChucVu;
 import com.mycompany.domainModel.NhanVien;
 import com.mycompany.repository.impl.NhanVienRepository;
 import com.mycompany.service.ICommonService;
+import com.mycompany.service.INhanVienService;
 import com.mycompany.util.ThongBao;
 import java.sql.Date;
 import java.util.List;
@@ -16,7 +17,7 @@ import java.util.List;
  *
  * @author Duongntt
  */
-public class NhanVienService implements ICommonService<NhanVien, String> {
+public class NhanVienService implements ICommonService<NhanVien, String>, INhanVienService {
 
     private NhanVienRepository nvRepo = new NhanVienRepository();
     private ThongBao thongBao = new ThongBao();
@@ -64,5 +65,10 @@ public class NhanVienService implements ICommonService<NhanVien, String> {
         //System.out.println(new NhanVienService().remove("NV2"));
 //        NhanVien nv = new NhanVienService().getOne("NV1");
 //        System.out.println(nv.toString());
+    }
+
+    @Override
+    public NhanVien getUserAndPass(String user, String pass) {
+        return nvRepo.getUserAndPass(user, pass);
     }
 }
