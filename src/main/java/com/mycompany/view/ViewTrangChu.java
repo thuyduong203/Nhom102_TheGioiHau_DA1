@@ -1186,6 +1186,7 @@ public class ViewTrangChu extends javax.swing.JFrame {
 
     private void tbBan1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbBan1MouseClicked
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_tbBan1MouseClicked
 
     private void txtTienMatInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_txtTienMatInputMethodTextChanged

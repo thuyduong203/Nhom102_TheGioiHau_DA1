@@ -20,6 +20,7 @@ public class HoaDonUtil {
         for (int i = 0; i < 6; i++) {
             ma += rd.nextInt(10);
         }
+        //dsad
         return ma;
     }
     public String layNgay() {
