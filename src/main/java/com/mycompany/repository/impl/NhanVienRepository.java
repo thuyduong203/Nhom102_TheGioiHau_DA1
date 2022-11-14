@@ -14,12 +14,13 @@ import java.util.List;
 import javax.persistence.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import com.mycompany.repository.INhanVienRepository;
 
 /**
  *
  * @author Duongntt
  */
-public class NhanVienRepository implements ICommonRepository<NhanVien, Boolean, String> {
+public class NhanVienRepository implements ICommonRepository<NhanVien, Boolean, String>, INhanVienRepository {
 
     @Override
     public List<NhanVien> getAll() {
@@ -117,21 +118,18 @@ public class NhanVienRepository implements ICommonRepository<NhanVien, Boolean, 
     }
 
     public static void main(String[] args) {
-//        ChucVu chucVu = new ChucVu();
-//        chucVu.setId("4FBC3358-868B-4CC6-A3DD-821199DF8EE3");
-//        NhanVien nhanVien = new NhanVien();
-//        nhanVien.setChucVu(chucVu);
-//        nhanVien.setDiaChi("d");
-//        nhanVien.setGioiTinh("nM");
-//        nhanVien.setHo("họ");
-//        nhanVien.setMa("NV2");
-//        nhanVien.setMatKhau("123");
-//        nhanVien.setNgaySinh(Date.valueOf("2003-11-29"));
-//        nhanVien.setSoDienThoai("5678");
-//        nhanVien.setTen("Tên");
-//        nhanVien.setTenDem("tên đệm");
-//        nhanVien.setTrangThai(1);
-        NhanVien add = new NhanVienRepository().getOne("NV02");
-        System.out.println(add);
+        NhanVien nv = new NhanVienRepository().getUserAndPass("NV001", "19120e3");
+        System.out.println(nv.getId());
+    }
+
+    @Override
+    public NhanVien getUserAndPass(String user, String pass) {
+        try ( Session session = HibernateUtil.getFactory().openSession()) {
+            Query query = session.createQuery("FROM NhanVien WHERE ma = :maNV and matKhau = :MatKhau");
+            query.setParameter("maNV", user);
+            query.setParameter("MatKhau", pass);
+            NhanVien nv = (NhanVien) query.getSingleResult();
+            return nv;
+        }
     }
 }
