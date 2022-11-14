@@ -21,7 +21,7 @@ import org.hibernate.Transaction;
  *
  * @author Admin
  */
-public class HoaDonChiTietRepository implements IHoaDonChiTiet<HoaDonChiTiet, Boolean, String, HoaDon,ComBo,MonAn> {
+public class HoaDonChiTietRepository implements IHoaDonChiTiet<HoaDonChiTiet, Boolean, String, HoaDon, ComBo, MonAn> {
 
     private static final Session session = HibernateUtil.getFactory().openSession();
     private String fromTable = "FROM HoaDonChiTiet ";
@@ -86,6 +86,20 @@ public class HoaDonChiTietRepository implements IHoaDonChiTiet<HoaDonChiTiet, Bo
         return check > 0;
     }
 
+    public BigDecimal tinhTongTien(List<HoaDonChiTiet> listHDCT) {
+        double tongTien = 0;
+        double tienMonAn = 0;
+        double tienCombo = 0;
+        for (HoaDonChiTiet hdct : listHDCT) {
+            String dongiaMonAn = String.valueOf(hdct.getDonGiaMonAn());
+            String donGiaCombo = String.valueOf(hdct.getDonGiaCombo());
+            tienMonAn += (Double.valueOf(dongiaMonAn)) * hdct.getSoLuongMonAn();
+            tienCombo += (Double.valueOf(donGiaCombo)) * hdct.getSoLuongCombo();
+        }
+        tongTien = tienMonAn + tienCombo;
+        return BigDecimal.valueOf(tongTien);
+    }
+
     public static void main(String[] args) {
 //        Ban ban = new Ban();
 //        ban.setId("E2379CDD-2827-4CB6-9A34-2C2103268F70");
@@ -106,16 +120,24 @@ public class HoaDonChiTietRepository implements IHoaDonChiTiet<HoaDonChiTiet, Bo
 
     @Override
     public HoaDonChiTiet getOneCombo(HoaDon hd, ComBo combo) {
-String hql = fromTable + "WHERE hoaDon = :hd AND comBo = :comBo";
+        String hql = fromTable + "WHERE hoaDon = :hd AND comBo = :comBo";
         Query query = session.createQuery(hql);
         query.setParameter("hd", hd);
         query.setParameter("hd", hd);
         HoaDonChiTiet kh = (HoaDonChiTiet) query.getSingleResult();
-        return kh;    }
+        return kh;
+    }
 
     @Override
     public HoaDonChiTiet getOneMonAn(HoaDon hd, MonAn monAn) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public List<HoaDonChiTiet> getHDCTByHD(HoaDon hoaDon) {
+        Query query = session.createQuery(fromTable + " WHERE hoaDon = :hoaDon");
+        query.setParameter("hoaDon", hoaDon);
+        List<HoaDonChiTiet> hoaDonChiTiets = query.getResultList();
+        return hoaDonChiTiets;
     }
 
 }

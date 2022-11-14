@@ -36,9 +36,9 @@ public class Ban {
     @GeneratedValue(generator = "generator")
     @Column(name = "IdBan", columnDefinition = "uniqueidentifier")
     private String id;
-    
+
     @ManyToOne
-    @JoinColumn(name = "IdKhuVuc",nullable = false)
+    @JoinColumn(name = "IdKhuVuc", nullable = false)
     private KhuVuc kv;
 
     @Column(name = "MaBan", nullable = false)
@@ -55,4 +55,7 @@ public class Ban {
 //    public Object[] toDataRow() {
 //        return new Object[]{maBan, soLuongChoNgoi};
 //    }
+    public Object[] toDataRow() {
+        return new Object[]{maBan, kv.getTenKV(), soLuongChoNgoi, (trangThai == 0 ? "Còn trống" : "Có người")};
+    }
 }

@@ -30,46 +30,61 @@ import org.hibernate.annotations.GenericGenerator;
 @Setter
 @ToString
 public class HoaDon {
-
+    
     @Id
     @GenericGenerator(name = "generator", strategy = "guid", parameters = {})
     @GeneratedValue(generator = "generator")
     @Column(name = "IdHD", columnDefinition = "uniqueidentifier", nullable = false)
     private String id;
-
+    
     @Column(name = "MaHD", nullable = false)
     private String maHoaDon;
-
+    
     @ManyToOne
     @JoinColumn(name = "IdNV", nullable = false)
     private NhanVien nhanVien;
-
+    
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "IdKH", nullable = true)
     private KhachHang khachHang;
-
+    
     @ManyToOne
     @JoinColumn(name = "IdBan", nullable = false)
     private Ban ban;
-
+    
     @Column(name = "NgayTao", nullable = false)
     private String ngayTao;
-
+    
     @Column(name = "NgayThanhToan")
     private Date ngayThanhToan;
-
+    
     @Column(name = "TongTien")
     private BigDecimal tongTien;
-
+    
     @Column(name = "GhiChu")
     private String ghiChu;
-
+    
     @Column(name = "TrangThai")
     private Integer trangThai;
-    
+
 //    @OneToMany(mappedBy = "hoaDon", fetch = FetchType.LAZY)
 //    private List<HoaDonChiTiet> listHDCT;
     public Object[] toDataRow() {
         return new Object[]{maHoaDon, nhanVien.getId(), khachHang.getId(), ngayTao, ngayThanhToan, tongTien, ghiChu};
+    }
+    
+    public String setTrangThai(int trangThai) {
+        if (trangThai == 0) {
+            return "Chưa thanh toán";
+        } else if (trangThai == 1) {
+            return "Đã thanh toán";
+        } else {
+            return "Đã huỷ";
+        }
+    }
+    
+    public Object[] toDataRowViewHoaDon() {
+        return new Object[]{maHoaDon, (nhanVien != null ? nhanVien.getMa() : " "), (khachHang != null ? khachHang.getMa() : " "),
+            ngayTao, ngayThanhToan, ghiChu, setTrangThai(trangThai)};
     }
 }

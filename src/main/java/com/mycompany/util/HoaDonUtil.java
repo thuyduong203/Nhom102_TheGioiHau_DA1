@@ -4,7 +4,9 @@
  */
 package com.mycompany.util;
 
+import com.mycompany.domainModel.HoaDon;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -22,6 +24,12 @@ public class HoaDonUtil {
         }
         return ma;
     }
+    public String zenMaThuyDuong(List<HoaDon> listHD) {
+        String ma = "HD";
+        Random rd = new Random();
+        return ma + String.valueOf(listHD.size() + 1);
+    }
+    
     public String layNgay() {
         Calendar cal = Calendar.getInstance();
         int month = cal.get(Calendar.MONTH) + 1;

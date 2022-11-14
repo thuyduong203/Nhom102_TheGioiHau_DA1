@@ -24,19 +24,23 @@ import org.hibernate.annotations.GenericGenerator;
 @Setter
 @ToString
 public class KhuVuc {
+
     @Id
     @GenericGenerator(name = "generator", strategy = "guid", parameters = {})
     @GeneratedValue(generator = "generator")
     @Column(name = "IdKhuVuc", columnDefinition = "uniqueidentifier", nullable = false)
     private String idKV;
-    
-    @Column(name = "MaKhuVuc",nullable = false)
+
+    @Column(name = "MaKhuVuc", nullable = false)
     private String maKV;
-    
-    @Column(name = "TenKhuVuc",nullable = false)
+
+    @Column(name = "TenKhuVuc", nullable = false)
     private String tenKV;
-    
+
     @Column(name = "TrangThai")
     private Integer trangThai;
-    
+
+    public Object[] toDataRow() {
+        return new Object[]{maKV, tenKV, (trangThai == 0 ? "Còn sử dụng" : "Không còn sd")};
+    }
 }

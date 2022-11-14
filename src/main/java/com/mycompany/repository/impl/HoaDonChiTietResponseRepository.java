@@ -7,7 +7,6 @@ package com.mycompany.repository.impl;
 import com.mycompany.customModel.HoaDonChiTietResponse;
 import com.mycompany.domainModel.HoaDon;
 import com.mycompany.hibernateUtil.HibernateUtil;
-import com.mycompany.repository.ICommonResponseRepository;
 import java.util.List;
 import javax.persistence.Query;
 import org.hibernate.Session;
