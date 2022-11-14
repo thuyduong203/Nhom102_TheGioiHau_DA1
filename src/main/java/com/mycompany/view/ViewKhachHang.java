@@ -19,13 +19,13 @@ import javax.swing.table.DefaultTableModel;
  * @author Admin
  */
 public class ViewKhachHang extends javax.swing.JFrame {
-
+    
     private DefaultTableModel dtmKhachHang = new DefaultTableModel();
     private List<KhachHang> listKH = new ArrayList<>();
     private KhachHangService khachHangService = new KhachHangService();
     private KhachHangUtil khachHangUtil = new KhachHangUtil();
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-
+    
     public ViewKhachHang() {
         initComponents();
         tbKhachHang.setModel(dtmKhachHang);
@@ -37,7 +37,7 @@ public class ViewKhachHang extends javax.swing.JFrame {
         java.util.Date today = new java.util.Date();
         dateNgaySinh.setDate(today);
     }
-
+    
     private void showData(List<KhachHang> listKH, int stt) {
         dtmKhachHang.setRowCount(0);
         for (KhachHang khachHang : listKH) {
@@ -45,7 +45,21 @@ public class ViewKhachHang extends javax.swing.JFrame {
             stt++;
         }
     }
-
+    
+    private void fill(int index, List<KhachHang> listKH) {
+        KhachHang khachHang = listKH.get(index);
+        txtMa.setText(khachHang.getMa());
+        txtMa.setEnabled(false);
+        txtDiaChi.setText(khachHang.getDiaChi());
+        txtHo.setText(khachHang.getHo());
+        txtQuocGia.setText(khachHang.getQuocGia());
+        txtSdt.setText(khachHang.getSdt());
+        txtTen.setText(khachHang.getTen());
+        txtTenDem.setText(khachHang.getTenDem());
+        txtThanhPho.setText(khachHang.getThanhPho());
+        txtTrangThai.setText(String.valueOf(khachHang.getTrangThai()));
+    }
+    
     private KhachHang newKH() {
         KhachHang khachHang = new KhachHang();
         listKH = khachHangService.getAll();
@@ -69,7 +83,7 @@ public class ViewKhachHang extends javax.swing.JFrame {
         khachHang.setTrangThai(Integer.valueOf(txtTrangThai.getText()));
         return khachHang;
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -458,6 +472,11 @@ public class ViewKhachHang extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tbKhachHang.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbKhachHangMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbKhachHang);
 
         btnAdd.setBackground(new java.awt.Color(51, 255, 0));
@@ -472,14 +491,29 @@ public class ViewKhachHang extends javax.swing.JFrame {
         btnUpdate.setBackground(new java.awt.Color(204, 204, 204));
         btnUpdate.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
 
         btnRemove.setBackground(new java.awt.Color(255, 0, 0));
         btnRemove.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnRemove.setText("Remove");
+        btnRemove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoveActionPerformed(evt);
+            }
+        });
 
         btnClear.setBackground(new java.awt.Color(204, 204, 204));
         btnClear.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnClear.setText("Clear");
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -580,6 +614,48 @@ public class ViewKhachHang extends javax.swing.JFrame {
         listKH = khachHangService.getAll();
         showData(listKH, 1);
     }//GEN-LAST:event_btnAddActionPerformed
+
+    private void tbKhachHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbKhachHangMouseClicked
+        int index = tbKhachHang.getSelectedRow();
+        fill(index, listKH);
+    }//GEN-LAST:event_tbKhachHangMouseClicked
+
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+        txtMa.setText("");
+        txtMa.setEnabled(false);
+        txtDiaChi.setText("");
+        txtHo.setText("");
+        txtQuocGia.setText("");
+        txtSdt.setText("");
+        txtTen.setText("");
+        txtTenDem.setText("");
+        txtThanhPho.setText("");
+        txtTrangThai.setText("");
+    }//GEN-LAST:event_btnClearActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        int index = tbKhachHang.getSelectedRow();
+        if (index < 0) {
+            JOptionPane.showMessageDialog(this, "Chọn data!");
+        } else {
+            KhachHang khachHang = newKH();
+            JOptionPane.showMessageDialog(this, khachHangService.update(khachHang, txtMa.getText()));
+            listKH = khachHangService.getAll();
+            showData(listKH, 1);
+        }
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
+        int index = tbKhachHang.getSelectedRow();
+        if (index < 0) {
+            JOptionPane.showMessageDialog(this, "Chọn data!");
+        } else {
+            KhachHang khachHang = newKH();
+            JOptionPane.showMessageDialog(this, khachHangService.remove(txtMa.getText()));
+            listKH = khachHangService.getAll();
+            showData(listKH, 1);
+        }
+    }//GEN-LAST:event_btnRemoveActionPerformed
 
     /**
      * @param args the command line arguments

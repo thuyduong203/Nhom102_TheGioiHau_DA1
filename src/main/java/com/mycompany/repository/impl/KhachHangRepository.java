@@ -24,7 +24,7 @@ public class KhachHangRepository implements ICommonRepository<KhachHang, Boolean
 
     @Override
     public List<KhachHang> getAll() {
-        String hql = fromTable + "WHERE trangThai = 0";
+        String hql = fromTable;
         Query query = session.createQuery(hql);
         List<KhachHang> khachHangs = query.getResultList();
         return khachHangs;
@@ -86,7 +86,7 @@ public class KhachHangRepository implements ICommonRepository<KhachHang, Boolean
 
     @Override
     public Boolean remove(String ma) {
-        String hql = "UPDATE " + fromTable +"SET trangThai = 1"
+        String hql = "UPDATE " + fromTable + "SET trangThai = 1"
                 + "WHERE ma = :ma";
         int check = 0;
         Transaction transaction = null;
