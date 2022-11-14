@@ -26,7 +26,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Admin
  */
 public class ViewHoaDon extends javax.swing.JFrame {
-
+    
     private DefaultTableModel dtmHoaDon = new DefaultTableModel();
     private List<HoaDon> listHD = new ArrayList<>();
     private HoaDonService hoaDonService = new HoaDonService();
@@ -38,7 +38,7 @@ public class ViewHoaDon extends javax.swing.JFrame {
     private HoaDonUtil hoaDonUtil = new HoaDonUtil();
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     private NhanVienService nhanVienService = new NhanVienService();
-
+    
     public ViewHoaDon() {
         initComponents();
         //lấy ngày giờ hnay:
@@ -58,20 +58,22 @@ public class ViewHoaDon extends javax.swing.JFrame {
         loadCbb(listBan);
         lbNgayGio.setText(String.valueOf(today));
     }
-
+    
     private void showData(List<HoaDon> listHD) {
-        dtmHoaDon.setRowCount(0);
-        for (HoaDon hoaDon : listHD) {
-            dtmHoaDon.addRow(hoaDon.toDataRowViewHoaDon());
+        if (listHD.size() > 0) {
+            dtmHoaDon.setRowCount(0);
+            for (HoaDon hoaDon : listHD) {
+                dtmHoaDon.addRow(hoaDon.toDataRowViewHoaDon());
+            }
         }
     }
-
+    
     private void loadCbb(List<Ban> listBan) {
         for (Ban ban : listBan) {
             dcbmChonBan.addElement(ban.getMaBan());
         }
     }
-
+    
     private void fillHD(int index, List<HoaDon> listHD) {
         HoaDon hoaDon = listHD.get(index);
         lbMaHD.setText(hoaDon.getMaHoaDon());
@@ -86,9 +88,9 @@ public class ViewHoaDon extends javax.swing.JFrame {
         lbKhuVuc.setText(hoaDon.getBan().getKv().getTenKV());
         txtBan.setText(String.valueOf(hoaDon.getBan().getMaBan()));
         txtNgayTao.setEnabled(false);
-
+        
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

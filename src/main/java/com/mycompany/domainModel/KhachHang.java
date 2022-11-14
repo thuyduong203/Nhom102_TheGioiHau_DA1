@@ -65,7 +65,7 @@ public class KhachHang {
     @Column(name = "TrangThai")
     private Integer trangThai;
 
-    public Object[] toDataRow() {
-        return new Object[]{ma, ho + " " + tenDem + " " + ten, gioiTinh, ngaySinh, sdt, diaChi, thanhPho, quocGia, trangThai};
+    public Object[] toDataRow(int stt) {
+        return new Object[]{stt, ma, ho + " " + tenDem + " " + ten, gioiTinh, ngaySinh, sdt, diaChi, (trangThai == 0 ? "active" : "un active")};
     }
 }
