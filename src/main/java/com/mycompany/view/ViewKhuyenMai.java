@@ -4,6 +4,13 @@
  */
 package com.mycompany.view;
 
+import com.mycompany.domainModel.KhuyenMai;
+import com.mycompany.domainModel.KhuyenMaiChiTiet;
+import com.mycompany.service.impl.KhuyenMaiChiTietService;
+import com.mycompany.service.impl.KhuyenMaiService;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -12,9 +19,14 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ViewKhuyenMai extends javax.swing.JFrame {
 
-    /**
-     * Creates new form View
-     */
+    private DefaultTableModel dtmKhuyenMai = new DefaultTableModel();
+    private DefaultTableModel dtmKMCT = new DefaultTableModel();
+    private List<KhuyenMai> listKM = new ArrayList<>();
+    private List<KhuyenMaiChiTiet> listKMCT = new ArrayList<>();
+    private KhuyenMaiService khuyenMaiService = new KhuyenMaiService();
+    private KhuyenMaiChiTietService khuyenMaiChiTietService = new KhuyenMaiChiTietService();
+   // private DefaultComboBoxModel
+
     public ViewKhuyenMai() {
         initComponents();
     }
