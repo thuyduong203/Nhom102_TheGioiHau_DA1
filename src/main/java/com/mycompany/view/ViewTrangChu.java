@@ -36,7 +36,6 @@ import com.mycompany.util.HoaDonUtil;
 import java.awt.Color;
 import java.math.BigDecimal;
 import java.sql.Date;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -75,6 +74,9 @@ public class ViewTrangChu extends javax.swing.JFrame {
     private int checkTaoHD = 1;
     private int checkMonAn = 1;
     private int checkBtnMonAn = 1;
+    private List<HoaDon> listHD = new ArrayList<>();
+    private HoaDonService hoaDonService = new HoaDonService();
+    private HoaDonUtil hoaDonUtil = new HoaDonUtil();
 
     /**
      * Creates new form View
@@ -1118,7 +1120,8 @@ public class ViewTrangChu extends javax.swing.JFrame {
         if ("".equals(lbSoBan.getText())) {
             JOptionPane.showMessageDialog(this, "Chọn bàn trước");
         } else {
-            String maHD = new HoaDonUtil().zenMa();
+            listHD = hoaDonService.getAll();
+            String maHD = hoaDonUtil.zenMaThuyDuong(listHD);
             String ngayTao = new HoaDonUtil().layNgay();
             String ngayThanhToan = new HoaDonUtil().layNgay();
             NhanVien nhanVien = (NhanVien) nvs.getOne("NV02");
