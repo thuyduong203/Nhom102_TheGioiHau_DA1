@@ -192,6 +192,7 @@ public class ViewTrangChu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        radioTrangThaiHD = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         txtTienMat = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -265,6 +266,10 @@ public class ViewTrangChu extends javax.swing.JFrame {
         cbChuyenKhoan = new javax.swing.JCheckBox();
         jLabel15 = new javax.swing.JLabel();
         txtChuyenKhoan = new javax.swing.JTextField();
+        radioTatCa = new javax.swing.JRadioButton();
+        radioChoThanhToan = new javax.swing.JRadioButton();
+        raidoDaThanhToan = new javax.swing.JRadioButton();
+        radioDaHuy = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -846,6 +851,18 @@ public class ViewTrangChu extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel15.setText("Chuyển khoản:");
 
+        radioTrangThaiHD.add(radioTatCa);
+        radioTatCa.setText("Tất cả");
+
+        radioTrangThaiHD.add(radioChoThanhToan);
+        radioChoThanhToan.setText("Chờ thanh toán");
+
+        radioTrangThaiHD.add(raidoDaThanhToan);
+        raidoDaThanhToan.setText("Đã thanh toán");
+
+        radioTrangThaiHD.add(radioDaHuy);
+        radioDaHuy.setText("Đã huỷ");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -861,6 +878,14 @@ public class ViewTrangChu extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(91, 91, 91)
+                        .addComponent(radioTatCa)
+                        .addGap(38, 38, 38)
+                        .addComponent(radioChoThanhToan)
+                        .addGap(29, 29, 29)
+                        .addComponent(raidoDaThanhToan)
+                        .addGap(46, 46, 46)
+                        .addComponent(radioDaHuy)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnTaoHD))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -905,7 +930,8 @@ public class ViewTrangChu extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbMaHD, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lbMaHD, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -937,7 +963,13 @@ public class ViewTrangChu extends javax.swing.JFrame {
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(radioTatCa)
+                                .addComponent(radioChoThanhToan)
+                                .addComponent(raidoDaThanhToan)
+                                .addComponent(radioDaHuy)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -1357,6 +1389,11 @@ public class ViewTrangChu extends javax.swing.JFrame {
     private javax.swing.JLabel lbNhanVien;
     private javax.swing.JLabel lbSoBan;
     private javax.swing.JTextField lbTenSanPham;
+    private javax.swing.JRadioButton radioChoThanhToan;
+    private javax.swing.JRadioButton radioDaHuy;
+    private javax.swing.JRadioButton radioTatCa;
+    private javax.swing.ButtonGroup radioTrangThaiHD;
+    private javax.swing.JRadioButton raidoDaThanhToan;
     private javax.swing.JTable tbBan;
     private javax.swing.JTable tbBan1;
     private javax.swing.JTable tbHoaDon;
