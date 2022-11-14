@@ -46,7 +46,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Admin
  */
 public class ViewTrangChu extends javax.swing.JFrame {
-    
+
     private DefaultTableModel dtmHoaDon = new DefaultTableModel();
     private DefaultTableModel dtmHoaDonCT = new DefaultTableModel();
     private DefaultTableModel dtmBan = new DefaultTableModel();
@@ -113,14 +113,14 @@ public class ViewTrangChu extends javax.swing.JFrame {
 //        txtTienThua.setText("0");
 //        fillTienThua();
     }
-    
+
     private void fillTienThua() {
         Double tienThua = 0.0;
         Double tongTienTatCa = Double.valueOf(txtTienMat.getText()) + Double.valueOf(txtChuyenKhoan.getText());
         tienThua = tongTienTatCa - Double.valueOf(txtTongTien.getText());
         txtTienThua.setText(tienThua.toString());
     }
-    
+
     private void fillTongTien() {
         Double tongTien = Double.valueOf(0);
         for (HoaDonChiTietResponse lstHDCTResponse : lstHDCTResponses) {
@@ -130,19 +130,19 @@ public class ViewTrangChu extends javax.swing.JFrame {
         }
         txtTongTien.setText(tongTien.toString());
     }
-    
+
     private void loadTableCombo() {
         String header[] = {"STT", "Mã Combo", "Tên Combo", "Đơn giá"};
         tbMonAn.setModel(dtmCombo);
         dtmCombo.setColumnIdentifiers(header);
     }
-    
+
     private void loadTableMonAn() {
         String headerMonAn[] = {"STT", "Loại món ăn", "Mã món ăn", "Tên món ăn", "Đơn giá", "Đơn vị tính"};
         tbMonAn.setModel(dtmMonAn);
         dtmMonAn.setColumnIdentifiers(headerMonAn);
     }
-    
+
     private void showDataMonAn(List<MonAnResponse> monAnResponses) {
         dtmMonAn.setRowCount(0);
         int stt = 0;
@@ -151,7 +151,7 @@ public class ViewTrangChu extends javax.swing.JFrame {
             dtmMonAn.addRow(monAnResponse.toDataRow(stt));
         }
     }
-    
+
     private void showDataHDCT(List<HoaDonChiTietResponse> hoaDonChiTietResponses) {
         dtmHoaDonCT.setRowCount(0);
         int stt = 0;
@@ -160,7 +160,7 @@ public class ViewTrangChu extends javax.swing.JFrame {
             dtmHoaDonCT.addRow(hoaDonChiTietResponse.toDataRow(stt));
         }
     }
-    
+
     private void showDataHoaDon(List<HoaDonResponse> hoaDonResponses) {
         dtmHoaDon.setRowCount(0);
         int stt = 0;
@@ -169,7 +169,7 @@ public class ViewTrangChu extends javax.swing.JFrame {
             dtmHoaDon.addRow(hoaDonResponse.toDataRow(stt));
         }
     }
-    
+
     private void showDataBan(List<BanResponse> banResponses) {
         dtmBan.setRowCount(0);
         int stt = 0;
@@ -178,7 +178,7 @@ public class ViewTrangChu extends javax.swing.JFrame {
             dtmBan.addRow(banResponse.toDataRow(stt));
         }
     }
-    
+
     private void loadDataCombo(List<ComboResponse> comboResponses) {
         dtmCombo.setRowCount(0);
         int stt = 0;
@@ -765,7 +765,7 @@ public class ViewTrangChu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lbNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbNgayGio, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbNgayGio, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnTrangChu)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1140,7 +1140,7 @@ public class ViewTrangChu extends javax.swing.JFrame {
                 showDataHoaDon(lstHoaDonResponses);
                 showDataBan(lstBanResponses);
             }
-            
+
         }
     }//GEN-LAST:event_btnThanhToanActionPerformed
 
@@ -1218,7 +1218,7 @@ public class ViewTrangChu extends javax.swing.JFrame {
 
     private void tbBan1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbBan1MouseClicked
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_tbBan1MouseClicked
 
     private void txtTienMatInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_txtTienMatInputMethodTextChanged
