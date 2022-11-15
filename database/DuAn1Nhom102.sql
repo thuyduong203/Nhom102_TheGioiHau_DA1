@@ -98,6 +98,7 @@ CREATE TABLE Nhan_Vien
 		Ten NVARCHAR(20) NOT NULL,
 		GioiTinh NVARCHAR(20) DEFAULT NULL,
 		Sdt VARCHAR(15) NOT NULL,
+		Email VARCHAR(100) DEFAULT NULL,
 		NgaySinh DATE NOT NULL,
 		DiaChi NVARCHAR(200) NOT NULL,
 		MatKhau VARCHAR(70) NOT NULL,
@@ -108,6 +109,7 @@ CREATE TABLE Mon_An
 	(
 		IdMonAn UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
 		IdLoai UNIQUEIDENTIFIER NOT NULL,
+		IdKM UNIQUEIDENTIFIER DEFAULT NULL,
 		MaMonAn VARCHAR(20) UNIQUE NOT NULL,
 		TenMonAn NVARCHAR(150) NOT NULL,
 		HinhAnh VARCHAR(255) DEFAULT NULL,
@@ -115,14 +117,7 @@ CREATE TABLE Mon_An
 		DonViTinh NVARCHAR(50) NOT NULL,
 		TrangThai INT DEFAULT 0
 	)
---11.Khuyen_Mai_Chi_Tiet 
-CREATE TABLE Khuyen_Mai_Chi_Tiet
-	(
-		IdCTKM UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
-		IdMonAn UNIQUEIDENTIFIER NOT NULL,
-		IdKM UNIQUEIDENTIFIER NOT NULL,
-	)
---12.KhuyenMai 
+--11.KhuyenMai 
 CREATE TABLE Khuyen_Mai
 	(
 		IdKM UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
@@ -136,7 +131,7 @@ CREATE TABLE Khuyen_Mai
 		GhiChu NVARCHAR(200) DEFAULT NULL,
 		TrangThai INT DEFAULT 0 
 	)
-----11. Ca_Lam_Viec
+----12. Ca_Lam_Viec
 --CREATE TABLE Ca_Lam_Viec
 --	(
 --		IdCaLamViec UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
@@ -149,7 +144,7 @@ CREATE TABLE Khuyen_Mai
 --		GhiChu NVARCHAR(200)
 --	)
 
---13.Chuc_Vu
+--12.Chuc_Vu
 CREATE TABLE Chuc_Vu
 	(
 		IdCV UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
@@ -157,7 +152,7 @@ CREATE TABLE Chuc_Vu
 		TenCV NVARCHAR(100) NOT NULL,
 		TrangThai INT DEFAULT 0
 	)
---14.Danh mục
+--13.Danh mục
 CREATE TABLE Danh_Muc
 	(
 		IdDanhMuc UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
@@ -171,8 +166,7 @@ CREATE TABLE Danh_Muc
 ALTER TABLE Danh_Muc ADD CONSTRAINT FK_Loai FOREIGN KEY(IdLoai) REFERENCES Danh_Muc(IdDanhMuc)
 --
 ALTER TABLE Khuyen_Mai ADD CONSTRAINT FK_NVTaoKM FOREIGN KEY (IdNV) REFERENCES Nhan_Vien(IdNV)
-ALTER TABLE Khuyen_Mai_Chi_Tiet ADD CONSTRAINT FK_MaKM FOREIGN KEY (IdKM) REFERENCES Khuyen_Mai(IdKM)
-ALTER TABLE Khuyen_Mai_Chi_Tiet ADD CONSTRAINT FK_MonAnKM FOREIGN KEY (IdMonAn) REFERENCES Mon_An(IdMonAn)
+
 ALTER TABLE Nhan_Vien ADD CONSTRAINT FK_CV FOREIGN KEY (IdCV) REFERENCES Chuc_Vu(IdCV)
 ALTER TABLE Hoa_Don_Chi_Tiet ADD CONSTRAINT FK_MonAn_HDCT FOREIGN KEY(IdMonAn) REFERENCES Mon_An(IdMonAn)
 ALTER TABLE Hoa_Don_Chi_Tiet ADD CONSTRAINT FK_HD_HDCT FOREIGN KEY(IdHD) REFERENCES Hoa_Don(IdHD)
@@ -185,25 +179,21 @@ ALTER TABLE Hoa_Don ADD CONSTRAINT FK_KH_HD FOREIGN KEY (IdKH) REFERENCES Khach_
 ALTER TABLE Combo ADD CONSTRAINT FK_NV_Combo FOREIGN KEY (IdNV) REFERENCES Nhan_Vien(IdNV)
 ALTER TABLE Ban ADD CONSTRAINT FK_KhuVuc FOREIGN KEY(IdKhuVuc) REFERENCES Khu_Vuc(IdKhuVuc)
 ALTER TABLE Mon_An ADD CONSTRAINT FK_Loai_monAN FOREIGN KEY(IdLoai) REFERENCES Danh_Muc(IdDanhMuc)
+ALTER TABLE Mon_An ADD CONSTRAINT FK_KM FOREIGN KEY (IdKM) REFERENCES Khuyen_Mai(IdKM)
 ALTER TABLE Giao_Dich ADD CONSTRAINT FK_HD FOREIGN KEY(IdHD) REFERENCES Hoa_Don(IdHD)
 
 
 
-select* from Khu_Vuc
-select * from Ban
-select * from Chuc_Vu
-select * from Nhan_Vien
-select * from Danh_Muc
-select * from Combo
-select * from Mon_An
-select * from Chi_Tiet_Combo
-insert Khach_Hang(MaKH) values('KH02')
-insert into Danh_Muc(IdLoai,MaDanhMuc,TenDanhMuc) values('AA5EF128-4354-4917-9C5D-9E19B52F1C3F','DM03',N'Nước uống có ga')
-select * from Giao_Dich
-select * from Hoa_Don
-select * from Hoa_Don_Chi_Tiet
-
-delete from Hoa_Don_Chi_Tiet where IdMonAn is null
-delete from Hoa_Don where IdKH is null
-delete from Giao_Dich
+--select* from Khu_Vuc
+--select * from Ban
+--select * from Chuc_Vu
+--select * from Nhan_Vien
+--select * from Danh_Muc
+--select * from Combo
+--select * from Mon_An
+--select * from Chi_Tiet_Combo
+--insert Khach_Hang(MaKH) values('KH02')
+--insert into Danh_Muc(IdLoai,MaDanhMuc,TenDanhMuc) values('AA5EF128-4354-4917-9C5D-9E19B52F1C3F','DM03',N'Nước uống có ga')
+--select * from Hoa_Don
+--select * from Khach_Hang
 
