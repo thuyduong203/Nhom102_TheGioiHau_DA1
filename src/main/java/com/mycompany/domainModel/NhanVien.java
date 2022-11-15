@@ -19,7 +19,6 @@ import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.annotations.GenericGenerator;
 
-
 @Entity
 @Table(name = "Nhan_Vien")
 @AllArgsConstructor
@@ -57,6 +56,9 @@ public class NhanVien {
     @Column(name = "Sdt", nullable = false)
     private String soDienThoai;
 
+    @Column(name = "Email")
+    private String email;
+
     @Column(name = "NgaySinh", nullable = false)
     private Date ngaySinh;
 
@@ -68,7 +70,7 @@ public class NhanVien {
 
     @Column(name = "TrangThai", nullable = false)
     private Integer trangThai;
-    
+
 //    @OneToMany(mappedBy = "nhanVien", fetch = FetchType.LAZY)
 //    private List<KhuyenMai> listKM;
 //    
@@ -77,10 +79,8 @@ public class NhanVien {
 //    
 //    @OneToMany(mappedBy = "nhanVien", fetch = FetchType.LAZY)
 //    private List<HoaDon> listHD;
-    
 //    @OneToMany(mappedBy = "nhanVien", fetch = FetchType.LAZY)
 //    private List<CaLamViec> listCLV;
-
     public Object[] toDataRow() {
         return new Object[]{};
     }

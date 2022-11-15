@@ -38,6 +38,10 @@ public class MonAn {
     @JoinColumn(name = "IdLoai", nullable = false)
     private DanhMuc loai;
 
+    @ManyToOne
+    @JoinColumn(name = "IdKM",nullable = true)
+    private KhuyenMai khuyenMai;
+    
     @Column(name = "MaMonAn", nullable = false)
     private String maMonAn;
 
