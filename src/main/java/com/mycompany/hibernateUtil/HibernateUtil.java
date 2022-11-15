@@ -15,7 +15,7 @@ import com.mycompany.domainModel.HoaDonChiTiet;
 import com.mycompany.domainModel.KhachHang;
 import com.mycompany.domainModel.KhuVuc;
 import com.mycompany.domainModel.KhuyenMai;
-import com.mycompany.domainModel.KhuyenMaiChiTiet;
+//import com.mycompany.domainModel.KhuyenMaiChiTiet;
 import com.mycompany.domainModel.MonAn;
 import com.mycompany.domainModel.NhanVien;
 import java.util.Properties;

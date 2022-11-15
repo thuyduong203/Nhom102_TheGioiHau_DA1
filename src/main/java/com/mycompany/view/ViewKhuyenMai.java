@@ -5,8 +5,8 @@
 package com.mycompany.view;
 
 import com.mycompany.domainModel.KhuyenMai;
-import com.mycompany.domainModel.KhuyenMaiChiTiet;
-import com.mycompany.service.impl.KhuyenMaiChiTietService;
+//import com.mycompany.domainModel.KhuyenMaiChiTiet;
+//import com.mycompany.service.impl.KhuyenMaiChiTietService;
 import com.mycompany.service.impl.KhuyenMaiService;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,9 +22,9 @@ public class ViewKhuyenMai extends javax.swing.JFrame {
     private DefaultTableModel dtmKhuyenMai = new DefaultTableModel();
     private DefaultTableModel dtmKMCT = new DefaultTableModel();
     private List<KhuyenMai> listKM = new ArrayList<>();
-    private List<KhuyenMaiChiTiet> listKMCT = new ArrayList<>();
+//    private List<KhuyenMaiChiTiet> listKMCT = new ArrayList<>();
     private KhuyenMaiService khuyenMaiService = new KhuyenMaiService();
-    private KhuyenMaiChiTietService khuyenMaiChiTietService = new KhuyenMaiChiTietService();
+//    private KhuyenMaiChiTietService khuyenMaiChiTietService = new KhuyenMaiChiTietService();
    // private DefaultComboBoxModel
 
     public ViewKhuyenMai() {
