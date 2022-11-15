@@ -32,7 +32,7 @@ import org.hibernate.service.ServiceRegistry;
 public class HibernateUtil {
 
     //khai báo ssF:
-private static final SessionFactory FACTORY;
+    private static final SessionFactory FACTORY;
 
     static {
         Configuration conf = new Configuration();
@@ -57,13 +57,12 @@ private static final SessionFactory FACTORY;
         conf.addAnnotatedClass(HoaDonChiTiet.class);
         conf.addAnnotatedClass(KhachHang.class);
         conf.addAnnotatedClass(KhuyenMai.class);
-        conf.addAnnotatedClass(KhuyenMaiChiTiet.class);
+        // conf.addAnnotatedClass(KhuyenMaiChiTiet.class);
         conf.addAnnotatedClass(MonAn.class);
         conf.addAnnotatedClass(NhanVien.class);
         conf.addAnnotatedClass(KhuVuc.class);
         conf.addAnnotatedClass(DanhMuc.class);
         conf.addAnnotatedClass(GiaoDich.class);
-        
 
         FACTORY = conf.buildSessionFactory(registry);
     }
