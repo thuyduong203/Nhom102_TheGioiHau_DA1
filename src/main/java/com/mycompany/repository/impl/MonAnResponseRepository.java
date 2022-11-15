@@ -18,7 +18,7 @@ import org.hibernate.Session;
 public class MonAnResponseRepository implements ICommonResponseRepository<MonAnResponse> {
 
     private static final Session session = HibernateUtil.getFactory().openSession();
-    private String fromTable = " FROM MonAn MA WHERE trangThai = 0";
+    private String fromTable = " FROM MonAn MA WHERE trangThai = 1";
 
     @Override
     public List<MonAnResponse> getAll() {

@@ -36,8 +36,8 @@ public class DanhMuc {
     @ManyToOne
     @JoinColumn(name = "idDanhMuc")
     private DanhMuc loai;
-    
-    @Column(name = "maDanhMuc",nullable = false)
+
+    @Column(name = "maDanhMuc", nullable = false)
     private String maDanhMuc;
 
     @Column(name = "TenDanhMuc", nullable = false)

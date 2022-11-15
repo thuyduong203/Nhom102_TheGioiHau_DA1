@@ -91,4 +91,43 @@ public class DanhMucRepository implements ICommonRepository<DanhMuc, Boolean, St
         return check > 0;
     }
 
+    /////add = hql
+    public boolean addDanhMucHQL(DanhMuc danhMuc) {
+        int check = 0;
+        try ( Session session = HibernateUtil.getFactory().openSession()) {
+            Transaction transaction = session.getTransaction();
+            transaction.begin();
+            try {
+                Query query = session.createQuery("INSERT INTO DanhMuc(maDanhMuc, tenDanhMuc, trangThai) "
+                        + " VALUES (:maDM, :tenDM, :trangThaiDM)");
+                query.setParameter("maDM", danhMuc.getMaDanhMuc());
+                query.setParameter("tenDM", danhMuc.getTenDanhMuc());
+                query.setParameter("trangThaiDM", danhMuc.getTrangThai());
+                check = query.executeUpdate();
+                transaction.commit();
+            } catch (Exception e) {
+                e.printStackTrace();
+                transaction.rollback();
+            }
+        } finally {
+            return check > 0;
+        }
+    }
+
+    public static void main(String[] args) {
+        //thêm danh mục:
+//        DanhMuc danhMuc = new DanhMuc();
+//        danhMuc.setMaDanhMuc("DM1");
+//        danhMuc.setTenDanhMuc("Đồ uống");
+//        danhMuc.setTrangThai(0);
+//        System.out.println(new DanhMucRepository().addDanhMucHQL(danhMuc));
+//thêm danh mục
+        DanhMuc danhMuc = new DanhMuc();
+        danhMuc.setLoai(null);
+        danhMuc.setMaDanhMuc("DM1");
+        danhMuc.setTenDanhMuc("Đồ uống");
+        danhMuc.setTrangThai(0);
+        boolean add = new DanhMucRepository().add(danhMuc);
+        System.out.println(add);
+    }
 }
